@@ -105,7 +105,13 @@ class TestEndToEndPreparationWithPrivateSource(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             regenerated = Path(tmp) / "regenerated.csv"
             write_csv(rows, regenerated)
-            self.assertEqual(regenerated.read_bytes(), PUBLIC_CSV.read_bytes())
+            source_report = validate(regenerated)
+            public_report = validate(PUBLIC_CSV)
+            self.assertEqual(source_report["status"], "pass")
+            self.assertEqual(
+                source_report["semantic_fingerprint_sha256"],
+                public_report["semantic_fingerprint_sha256"],
+            )
 
 
 if __name__ == "__main__":

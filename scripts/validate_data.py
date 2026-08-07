@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+from hashlib import sha256
 import json
 from pathlib import Path
 import re
@@ -10,6 +11,42 @@ import re
 from .campaign_data import KNOWN_RESULT_TYPES, NUMERIC_FIELDS, PROJECT_ROOT, PUBLIC_CSV
 
 PHONE_RE = re.compile(r"(?i)(?:phone=|wa\.me/)\+?\d{7,15}")
+EXPECTED_SEMANTIC_FINGERPRINT = (
+    "e7bd7362a87011574993c559b52f9540a3330cbe6ffe8ddfa683892f69935544"
+)
+SEMANTIC_NUMERIC_FIELDS = {
+    "campaign_row_id",
+    "source_excel_row",
+    "results",
+    "reach",
+    "impressions",
+    "cost_per_result_ngn",
+    "amount_spent_ngn",
+}
+
+
+def semantic_fingerprint(rows: list[dict[str, str]], fieldnames: list[str]) -> str:
+    """Hash the prepared records independent of CSV newline/number formatting."""
+    canonical_rows = []
+    for row in rows:
+        canonical = {}
+        for field in fieldnames:
+            value = row[field]
+            if field in SEMANTIC_NUMERIC_FIELDS:
+                if value == "":
+                    canonical[field] = None
+                else:
+                    number = float(value)
+                    canonical[field] = int(number) if number.is_integer() else number
+            else:
+                canonical[field] = value
+        canonical_rows.append(canonical)
+    payload = json.dumps(
+        canonical_rows, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+    ).encode("utf-8")
+    return sha256(payload).hexdigest()
+
+
 EXPECTED_FIELDS = {
     "campaign_row_id",
     "source_excel_row",
@@ -50,6 +87,13 @@ def validate(path: Path = PUBLIC_CSV) -> dict[str, object]:
         errors.append("Missing expected columns: " + ", ".join(missing_fields))
     if unexpected_fields:
         warnings.append("Unexpected columns present: " + ", ".join(unexpected_fields))
+
+    fingerprint = semantic_fingerprint(rows, fieldnames)
+    if fingerprint != EXPECTED_SEMANTIC_FINGERPRINT:
+        errors.append(
+            "Prepared public records do not match the semantic fingerprint of the "
+            "verified private-source preparation."
+        )
 
     row_ids = [int(row["campaign_row_id"]) for row in rows]
     if row_ids != list(range(1, len(rows) + 1)):
@@ -144,6 +188,8 @@ def validate(path: Path = PUBLIC_CSV) -> dict[str, object]:
         "cost_per_result_rows_checked": cpr_checked,
         "cost_per_result_rows_reconciled": cpr_reconciled,
         "max_cost_per_result_absolute_difference": max_cpr_difference,
+        "semantic_fingerprint_sha256": fingerprint,
+        "expected_semantic_fingerprint_sha256": EXPECTED_SEMANTIC_FINGERPRINT,
         "errors": errors,
         "warnings": warnings,
     }
