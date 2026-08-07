@@ -2,285 +2,161 @@
 
 ## 1. Analytical purpose
 
-This repository is a **retrospective exploratory analysis** of a historical music-release and promotion programme for Kashe Music Group / Santeri. The surviving Meta Ads workbook is the principal quantitative dataset, but I do not treat paid social as the whole campaign.
+This repository is a **retrospective exploratory analysis** of a historical music-release and promotion programme for Kashe Music Group / Santeri. The Meta Ads workbook is the principal quantitative dataset, but paid social is treated as one observable part of a wider creative campaign.
 
-The analysis asks six connected questions:
+The analysis asks what resources were committed, how media was deployed, what paid-social outcomes can be reconstructed, where performance was concentrated, and what additional data would be required to test the historical assumptions I made about market traction, gatekeeper interest and downstream opportunities.
 
-1. What creative, human, technical, financial, organisational, network, media and information resources were involved in the later releases?
-2. How did the resource configuration change as I moved from a manager-led artist phase into broader creative-operations ownership?
-3. What paid-media activity and scale can be reconstructed from the source records?
-4. How did recorded performance vary within genuinely comparable Meta result types, and which campaigns shaped the portfolio aggregates?
-5. What did I believe at the time about the relationship between online traction and subsequent media/live opportunities, and which drivers or barriers remained untested?
-6. What additional data and design would be needed to move from exploratory diagnosis to a stronger claim about creative effectiveness, total resource efficiency or causal impact?
+The repository also serves an evidential purpose by providing a transparent source trail for statements in my CV and cover letter concerning creative campaign management, paid media, audience development and performance-informed decision-making.
 
-The repository also serves an evidential purpose. It provides a transparent source trail for statements in my CV and cover letter concerning creative campaign management, paid media, audience development and performance-informed decision-making.
+## 2. Creative production as a resource system
 
-## 2. Conceptual basis I: creative production as a resource system
+Throsby (2006) distinguishes artistic-production inputs including labour, operating capital and human capital. Gander (2015) provides a music-specific organisational perspective in which production brings together specialist people, material resources, knowledge and temporary project relationships under uncertainty ([Throsby, 2006](https://doi.org/10.1007/s10824-005-9001-4); [Gander, 2015](https://doi.org/10.1108/MD-03-2014-0165)).
 
-A music release begins with productive inputs, not with an advertising metric. Throsby (2006) models artistic output using inputs including **labour time, physical/operating capital and human capital**. His empirical application concerns Australian visual artists and craftspeople, so I do not transfer the estimated production relationships to this case. I use the categories as a general vocabulary for distinguishing creative-production inputs from outputs ([Throsby, 2006](https://doi.org/10.1007/s10824-005-9001-4)).
+Drawing on those concepts and the historical case, I use eight resource domains: **creative/intellectual assets; human capital and specialist labour; physical/technical/operating capital; financial capital; organisational/managerial capability; network/relational resources; media/channel resources; and information/analytical resources**. This is my resource map for this case rather than a taxonomy reproduced from either study.
 
-Gander (2015) provides a music-specific organisational perspective. His observation of a pop-song recording project describes production as a process of decision-making under uncertainty involving temporarily assembled teams and relationships between people, material resources, knowledge and organisations. Spatial and material arrangements help organise tasks and roles ([Gander, 2015](https://doi.org/10.1108/MD-03-2014-0165)).
+The report distinguishes **production intensity** from **creative quality**. Expenditure, team size and specialist roles are evidence that more financial, human and operating resources entered a project. They do not independently prove that the resulting creative was artistically superior.
 
-Drawing on these sources and the historical case, I use eight resource domains:
+## 3. Media deployment and chronology
 
-| Resource domain | Operational meaning in this analysis |
-|---|---|
-| **Creative/intellectual assets** | Song/master, scripts, visual concepts, artwork, creative hooks, content variants and other reusable campaign material |
-| **Human capital and specialist labour** | Skills, experience and labour contributed by artists, producers, directors, crew, editors, stylists, creators, managers and promotional personnel |
-| **Physical/technical/operating capital** | Studios, sets, locations, equipment, production tools, costumes/props, post-production capability, transport and logistics |
-| **Financial capital** | Cash committed to production, specialist labour, media, logistics and other promotional activity |
-| **Organisational/managerial capability** | Budgeting, scheduling, briefing, coordination, release sequencing, approvals, campaign monitoring and resource allocation |
-| **Network/relational resources** | Access arising from managers, promoters, radio/TV contacts, DJs/clubs, event organisers, collaborators, creators and prior artist trajectory |
-| **Media/channel resources** | Owned channels, paid advertising, earned publicity/word of mouth and offline/intermediated promotional access |
-| **Information/analytical resources** | Advertising results, post/page data, audience feedback, messages/contact data and analytical methods used to interpret response |
+Lovett and Staelin (2016) distinguish paid, earned and owned media in an entertainment setting ([Lovett & Staelin, 2016](https://doi.org/10.1287/mksc.2015.0961)). I use those categories for the digital campaign and retain **offline/intermediated promotion** separately because radio, television, DJs/clubs and live activity may be paid, earned or relationship-mediated depending on the activity.
 
-This is **my resource map for the case**, not a taxonomy reproduced from either Throsby or Gander.
+Chronology is used as a control against retrospective over-attribution. The four Portable opening appearances occurred in the earlier manager-led artist phase, before *Let's Fly Away* and before I took broad creative-operations ownership. *Let's Fly Away* marks the transition to broad creative ownership; Bunda represents a later increase in production and promotional resources.
 
-### Production intensity versus creative quality
+## 4. Historical managerial hypothesis
 
-The report distinguishes **production intensity** from **quality**. Expenditure, crew size and specialisation are evidence that more financial, human and operating resources entered a project. They are not, by themselves, objective proof that an audience or expert would judge the output artistically superior.
+During the later period, I worked with an informal assumption that the combined campaign was creating visible market traction and that this visibility helped when approaching or negotiating with radio, television and event decision-makers. Some opportunities were negotiated outbound and others arrived inbound.
 
-For Bunda, the historical account is that the music video cost more than NGN 5 million to produce and involved a set of more than 30 people, including specialist production roles such as producer, director and costume/styling together with scripted creative work. I therefore use those facts to describe a substantial increase in resource commitment and production-value inputs. The amount is treated as **author-reported historical production context** unless further production invoices or budgets are added to the evidence set.
+I did not test that assumption at the time. It is therefore represented as a hypothesis:
 
-## 3. Conceptual basis II: media deployment
+`resource configuration → campaign execution → exposure/engagement → visible traction → perceived market signal → gatekeeper interest/negotiation leverage → media/live opportunities`
 
-Lovett and Staelin (2016) distinguish **paid**, **earned** and **owned** media in an entertainment-brand setting: paid media is advertising; earned media includes word of mouth, social-media buzz and publicity; owned media includes seller-generated content and channels ([Lovett & Staelin, 2016](https://doi.org/10.1287/mksc.2015.0961)). Their structural model and effect sizes concern television viewing and are not transferred to this campaign. The classification is used only to organise communication channels.
+The surviving evidence does not observe or control every link. Candidate drivers include creative/production inputs, song characteristics, paid distribution, organic response, pre-existing networks, direct outreach, offline promotion, algorithms and timing. Candidate barriers include saturation, weak audience fit, opaque platform mechanisms, gatekeeper criteria unrelated to social engagement, incomplete attribution and failure of online response to convert into durable fandom or commercial value.
 
-For the Kashe case:
+## 5. Quantitative source and evidence types
 
-- **Owned:** artist social accounts, music video, visualiser, short-form content, campaign copy and direct audience/contact assets.
-- **Paid:** Meta Ads, X Ads and Google Ads, plus any other directly purchased amplification where applicable.
-- **Earned:** organic sharing, audience discussion, word of mouth, unsolicited publicity and inbound attention.
-- **Offline/intermediated:** radio/TV outreach, club/DJ exposure, live appearances and industry networking. This is retained as a separate practical category because these activities may be paid, earned or relationship-mediated depending on the specific circumstance.
+The principal quantitative source is the `Raw Data Report` sheet of `30-01-23.xlsx`. A separate Meta screenshot records **NGN 1,492,844.45** spent at account level and is used to contextualise workbook coverage.
 
-The objective is not to force every action into a single marketing label. It is to show that the audience experienced a **media mix**, so Meta results represent one observable channel within a broader campaign system.
+The project distinguishes four evidence types:
 
-## 4. Chronology and role boundary
+1. **workbook-recorded evidence** — values directly exported from Meta;
+2. **derived measures** — calculations such as CTR, CPM, medians and concentration shares;
+3. **author-reported historical context** — production cost, team size, chronology and broader promotional activity not contained in the workbook; and
+4. **external research/sector evidence** — used to define concepts or establish contextual plausibility, not to overwrite the historical source data.
 
-Chronology is used as an analytical control against retrospective over-attribution.
+## 6. Targeted data preparation, not comprehensive cleaning
 
-### Phase 1: manager-led artist development
+The source export was already broadly rectangular, so the task did not require comprehensive cleaning or substantial reshaping. The preparation stage is deliberately conservative: preserve the historical records, verify what can be verified, sanitise the one privacy-sensitive value and make the transformation reproducible.
 
-Before *Let's Fly Away*, I was primarily operating as the artist within a manager-led arrangement. Four opening-act appearances involving Portable occurred in this phase: two at shows he organised and two at third-party shows where he was also booked.
+`scripts/prepare_data.py` begins from the original workbook rather than from a manually prepared CSV. It verifies the expected SHA-256, finds the header from the source labels and checks the duplicated campaign-name columns before removing redundancy. It verifies that the quality, engagement-rate and conversion-rate ranking fields contain no usable values and that `Results (initial)` is blank before leaving those fields out of the public table.
 
-I was **not in charge of creative operations for those events**. They are therefore treated as evidence of pre-existing live experience, artist trajectory and network access. They are not counted as outcomes of the later creative strategy.
+All **126 campaign rows are preserved**. Repeated campaign names are not treated as duplicates because stable campaign/ad IDs are absent and a repeated name could represent a copy, separate run or related activity. Each row receives `campaign_row_id` and retains its original Excel row number for traceability.
 
-### Phase 2: *Let's Fly Away*
+One campaign name contains a historical WhatsApp phone number. The public transformation performs **redaction**, removing only the phone digits while preserving the campaign's analytical values.
 
-This was the transition to broad creative-operations ownership. Historical activities included directing/producing a visualiser, editing short-form assets, sourcing licensed footage, coordinating creators, developing a dance challenge and running digital promotion.
+Four source rows have **blank result type, blank Results and blank Cost per result fields**. They are not repaired or imputed. They are preserved with `data_quality_flag = missing_result_type` and excluded only from analyses that require a known result type. An earlier manual inspection had described these records as result type `2`; the end-to-end XLSX reader corrected that interpretation by resolving the workbook's shared strings properly.
 
-### Phase 3: *Bunda*
+The numerical preparation is limited to consistent data types/serialisation. Genuine extreme campaigns such as Bunda and Pressure are retained. They are later investigated through distributions and sensitivity analysis rather than removed as errors.
 
-This phase materially increased production and promotional resources. The author-reported video-production cost exceeded NGN 5 million and involved more than 30 people. The surviving Meta workbook also contains a set of explicitly Bunda-labelled campaign rows, analysed separately as a lower-bound identifiable paid-media subset.
+Van den Broeck et al. (2005) are useful here because they distinguish data screening/diagnosis from automatic editing and emphasise the difference between a genuine extreme observation and a faulty value ([Van den Broeck et al., 2005](https://doi.org/10.1371/journal.pmed.0020267)). Wickham's (2014) tidy-data terminology is relevant only at the structural level: variables are represented as columns and campaign observations as rows; the original export did not require major tidying ([Wickham, 2014](https://doi.org/10.18637/jss.v059.i10)).
 
-This chronology means that later opportunities are interpreted against an existing baseline of artist experience and industry access rather than against a hypothetical zero-history artist.
+## 7. Automated validation
 
-## 5. Historical managerial hypothesis and analytical status
+`scripts/validate_data.py` checks the prepared public table before analysis. The checks cover:
 
-During the later campaign period, I operated with an informal working theory that the cumulative campaign was creating visible market traction. I perceived that professional content, paid reach, organic engagement and offline promotion produced social proof or a **market signal** that helped during outreach and negotiation with radio, television and event decision-makers. Some opportunities were actively negotiated; some arrived inbound.
+- expected schema and sequential row identifiers;
+- uniqueness of source Excel row references;
+- absence of a WhatsApp phone number in published campaign names;
+- numeric conversion and non-negative values;
+- non-positive impressions/results where they should not occur;
+- reach greater than impressions as a review condition;
+- consistency between known/blank result types and the quality flag; and
+- independent recalculation of Meta's exported `cost per result` as `amount spent / results`.
 
-That working theory was **not tested at the time**. It is therefore represented as a hypothesis rather than a finding:
+All **122 rows with recognised result types** reproduce the exported cost-per-result value within `1e-6`; the maximum absolute floating-point difference is approximately `4.95e-09`. This is an **internal consistency check**, not independent validation of Meta's historical measurement/attribution system.
 
-`resource configuration → campaign execution → exposure/engagement → visible traction → perceived audience legitimacy/market signal → gatekeeper interest or negotiation leverage → media/live opportunities`
+## 8. Derived measures and analytical procedures
 
-The dataset does not observe or control every link in this chain.
+Result types are analysed separately. A Facebook like, link click, ThruPlay, messaging conversation and lead represent different objectives and are not pooled into a single result total.
 
-### Candidate drivers not isolated
+Where the components exist, the analysis derives:
 
-- creative quality and production intensity;
-- song characteristics and audience fit;
-- paid spend, audience selection and delivery optimisation;
-- organic response and word of mouth;
-- pre-existing managers, promoters and industry networks;
-- earlier live-performance history;
-- creator/collaborator activity;
-- direct radio/TV/event outreach;
-- offline promotion;
-- platform algorithms and recommender systems;
-- timing, novelty and competitive attention conditions.
+- **weighted CPC** = total link-campaign spend / total link clicks;
+- **derived link CTR** = link clicks / impressions × 100;
+- **CPM** = spend / impressions × 1,000;
+- **row-level impressions/reach ratio** = impressions / reach; and
+- **result/impression rate** = results / impressions × 100.
 
-### Candidate barriers not isolated
+For link-click rows I report both portfolio-weighted KPIs and campaign-level medians. Their divergence led to a **concentration analysis** and then a **sensitivity analysis** excluding the two principal Bunda YouTube traffic rows and then Pressure. CPC is interpreted alongside CTR and CPM so that response efficiency is not confused with cheap media delivery.
 
-- market saturation and competition for attention;
-- weak audience/creative fit;
-- opaque platform mechanisms;
-- gatekeeper criteria unrelated to online engagement;
-- incomplete conversion/attribution data;
-- resource constraints;
-- novelty decay or creative fatigue;
-- failure of online response to translate into durable fandom or economic value.
+The broader Bunda reconstruction uses only recognised rows whose surviving campaign name explicitly contains `Bunda`. It is labelled a **lower bound** because generic/truncated names may omit other Bunda-related activity.
 
-Polak and Schaap (2024) are used to contextualise the platform-uncertainty element. Their 20 interviews with early- to mid-career musicians show that musicians often undertake social-media and other entrepreneurial work alongside creative production, while visibility on streaming/social platforms can be perceived as a black box because artists cannot easily identify why some work is picked up ([Polak & Schaap, 2024](https://doi.org/10.1177/14614448241243095)). Their Dutch sample is not used as evidence about Nigerian gatekeepers.
+## 9. Visualisation design
 
-Okolie and Onwuegbuna (2024) are used for local contextual plausibility. Their descriptive study of 16 Port Harcourt radio stations found that social-media responses, direct artist contact and artist online platforms formed part of the stations' reported popularity/programming environment. Because the study is local, descriptive and not about my campaign, it cannot establish the cause of my own radio/media opportunities ([Okolie & Onwuegbuna, 2024](https://www.researchgate.net/publication/380345560_Evolving_Trends_in_Radio_Popularization_of_Nigerian_Urban_Music)).
+The visualisations are selected after defining the analytical question rather than because a particular chart type is available. Munzner's (2009) nested model distinguishes the domain problem, data/task abstraction, visual encoding and algorithmic implementation; mistakes at an upstream level cannot be repaired merely by a technically correct chart ([Munzner, 2009](https://doi.org/10.1109/TVCG.2009.111)).
 
-## 6. Measurement map: from resources to outcomes
+The pipeline therefore generates:
 
-The previous analysis already distinguished different stages of response. I retain that structure but place the resource system before it.
+- a logarithmically spaced CPC distribution because CPC spans several orders of magnitude;
+- a log-log spend-versus-link-click scatter to examine the relationship over a highly skewed range;
+- a horizontal common-baseline bar chart for the top link-click rows; and
+- direct CPC and CTR scenario bars for the sensitivity analysis.
 
-| Stage | Primary question | Measures/evidence available |
-|---|---|---|
-| **Resource inputs** | What human, financial, technical, creative and relational resources were committed? | Partial historical context; production spend/crew for Bunda; Meta spend; incomplete offline cost ledger |
-| **Media deployment** | Through which paid, owned, earned or intermediated channels were resources activated? | Meta data strong; X/Google and offline activity historically known but not fully quantified |
-| **Delivery** | At what scale and cost was paid media served? | Spend, impressions, reach, CPM |
-| **Attention** | Did the delivered content retain early attention? | Partial 3-second-play and ThruPlay data |
-| **Traffic response** | Did impressions produce link-click response and at what cost? | Strong link-click, CTR and CPC data |
-| **Direct/downstream action** | Did people move into a direct relationship or later action? | Messaging conversations, one lead, historical follower/page and opportunity context |
-| **Commercial/strategic value** | Did the total campaign create sufficient economic or strategic return relative to all resources? | Incomplete; no common revenue/profit/booking-value linkage |
+The figures are descriptive. They do not supply missing creative variables or causal identification.
 
-Yousef, Dietrich and Rundle-Thiele (2021) are used methodologically because their Facebook study separates exposure/interaction from an action beyond the platform and uses controlled A/B exposure when comparing creative appeals ([Yousef et al., 2021](https://doi.org/10.3390/ijerph18115954)). Their performance results are not used as benchmarks for this case.
+## 10. Reproducibility and provenance
 
-## 7. Effectiveness, efficiency and total resource return
+The computational workflow is split into preparation, validation, analysis, visualisation and provenance stages and is orchestrated by `scripts/run_pipeline.py`. `analysis/run_manifest.json` records runtime versions and hashes of code/configuration and generated products.
 
-Three related but different analytical questions are maintained throughout the report.
+Wilson et al. (2014) recommend readable modular code, automation, version control and testing in scientific computing; Sandve et al. (2013) similarly emphasise executable transformations and retaining what is needed to reproduce a result. Wilkinson et al. (2016) extend that logic to rich provenance and reusable metadata even where source data cannot be openly shared. Trisovic et al. (2022), examining more than 2,000 replication packages, identify missing dependencies, hard-coded paths and insufficient documentation as recurring barriers to re-execution ([Wilson et al., 2014](https://doi.org/10.1371/journal.pbio.1001745); [Sandve et al., 2013](https://doi.org/10.1371/journal.pcbi.1003285); [Wilkinson et al., 2016](https://doi.org/10.1038/sdata.2016.18); [Trisovic et al., 2022](https://doi.org/10.1038/s41597-022-01143-6)).
 
-### Effectiveness
+The public GitHub Actions workflow compiles and lints the code, runs the tests, rebuilds public products from the sanitised CSV and fails if committed outputs drift. The private workbook is deliberately excluded, so the Excel-to-CSV stage can only be rerun in an authorised local environment with the verified source present.
 
-Did the activity achieve the objective recorded for it? For example, a link-click campaign is first interpreted through link clicks, while a messaging campaign is interpreted through conversations started.
+## 11. Interpretation boundary
 
-### Paid-media efficiency
+Reproducibility makes the transformation and calculations inspectable; it does not make the historical data explanatory. Deleted creative assets, audience/placement variables, campaign-specific dates, controlled test assignments and consistent downstream commercial outcomes are missing. The analysis can therefore establish where response concentrated and how paid-media efficiency differed, but not which creative element or marketing channel caused the wider career outcomes.
 
-How much paid-media input was required per recorded platform outcome? CPC, CPM, cost per Facebook like, cost per conversation and cost per ThruPlay can be calculated because spend and results are observed within the same platform record.
+Likewise, Meta CPC or CTR cannot be used as a return measure for the more than NGN 5 million author-reported Bunda video investment. A total resource-productivity or ROI analysis would require a fuller cost ledger linked to revenue, profit, attributable bookings or another defined strategic outcome.
 
-### Total campaign resource productivity/economic return
+## 12. Reproduction
 
-Did the combined production, creative labour, paid media, offline promotion and network effort create sufficient downstream value? A robust answer would require a fuller resource ledger and an outcome such as revenue, profit, attributable bookings, audience lifetime value or another defined strategic return.
+Full local pipeline with the verified workbook:
 
-The historical source cannot provide a total campaign ROI. I therefore do not use the efficiency of Bunda's Meta clicks to infer the efficiency of the NGN 5 million-plus music-video investment.
+```bash
+python -m scripts.run_pipeline
+```
 
-Li, Larimo and Leonidou (2021) are used as a conceptual link between social-media objectives and performance measurement. Their framework treats social-media strategies as objective-dependent and identifies effectiveness, efficiency and adaptiveness as relevant performance dimensions for further research ([Li et al., 2021](https://doi.org/10.1007/s11747-020-00733-3)).
+Public rebuild from the sanitised CSV:
 
-## 8. Quantitative data sources and unit of analysis
+```bash
+python -m scripts.run_pipeline --from-public-csv
+```
 
-The principal quantitative source is the `Raw Data Report` sheet of `30-01-23.xlsx`. A separate Meta account screenshot records **NGN 1,492,844.45** spent at account level and is used to assess export coverage.
+Tests:
 
-The raw workbook is not published unchanged because a historical campaign name contains a WhatsApp phone number. `data/meta_campaign_export_sanitized.csv` preserves the relevant campaign-level values while redacting that number.
+```bash
+python -m unittest discover -s tests -v
+```
 
-The unit of analysis is a **source campaign row**. The workbook contains **126 rows and 96 distinct campaign-name strings**. Stable campaign/ad IDs are not available, so repeated names are not automatically deduplicated.
-
-## 9. Data verification
-
-The raw sheet was re-read and calculations were re-run before the current report was published.
-
-- **126** campaign rows were recovered.
-- **122** rows have recognisable result types.
-- **4** rows contain an ambiguous result type/value (`2`).
-- All **122 recognisable rows** reproduce exported `cost per result` when `amount spent / results` is recalculated within `1e-6`; maximum absolute floating-point difference is approximately `4.95e-09`.
-- The duplicated campaign-name columns agree across all 126 rows.
-- Quality, engagement-rate and conversion-rate ranking columns contain `-` throughout and are not used.
-- Repeated reporting dates are treated as an export window, not individual campaign active dates.
-
-The four ambiguous rows are retained with a quality flag but excluded from result-type summaries. They represent only **NGN 126.39 spend** and **462 impressions**.
-
-## 10. Derived paid-media measures
-
-Where components exist, the analysis derives:
-
-- **Weighted CPC** = total spend / total link clicks
-- **Derived link CTR** = link clicks / impressions × 100
-- **CPM** = spend / impressions × 1,000
-- **Row-level impressions/reach ratio** = impressions / reach
-- **Result/impression rate** = results / impressions × 100
-
-Grouped cost-per-result calculations use total spend divided by total results rather than averaging row-level costs.
-
-Campaign-level medians are also reported for the link-click group. The weighted portfolio metric answers what happened across total spend and response, while the median indicates the centre of the distribution. Their divergence is therefore analytically meaningful.
-
-Quartiles, where used, follow Python `statistics.quantiles(..., method="exclusive")` and the convention is stated to avoid ambiguity between percentile definitions.
-
-## 11. Explicit Bunda-name reconstruction
-
-For the broader Bunda resource analysis, campaign names are searched case-insensitively for `Bunda`.
-
-This identifies **18 rows** with:
-
-- **NGN 450,035.75 spend**;
-- **3,085,893 impressions**;
-- **2,062,597 summed campaign reach**;
-- **15 link-click rows** recording 568,819 clicks from NGN 438,522.79 spend;
-- **3 ThruPlay rows** recording 29,344 ThruPlays from NGN 11,512.96 spend.
-
-The Bunda-name reconstruction is labelled a **lower-bound subset** because generic/truncated campaign names can contain Bunda-related creative without retaining the song title in the export. It is not used as a definitive total Bunda ad budget.
-
-## 12. Analytical procedures
-
-### 12.1 Result-type separation
-
-Meta rows are first grouped by result type. Link clicks, Facebook likes, messaging conversations, ThruPlays, post engagements, three-second video plays and leads are analysed separately.
-
-### 12.2 Distribution analysis
-
-For link-click rows, portfolio-weighted KPIs are compared with campaign-level medians and dispersion. This prevents a high-volume outlier from being mistaken for typical performance.
-
-### 12.3 Concentration analysis
-
-Rows are ranked by clicks and the contribution of leading campaigns to total link clicks, spend and impressions is calculated.
-
-### 12.4 Sensitivity analysis
-
-The link-click aggregate is recalculated after excluding the two principal Bunda YouTube traffic rows, and then after also excluding Pressure. This tests how dependent the headline pooled result is on the largest high-response cases.
-
-### 12.5 Cross-metric interpretation
-
-CPC is examined alongside CTR and CPM. This distinguishes low cost per click produced mainly by cheap impression delivery from low CPC associated with a high response rate.
-
-### 12.6 Resource interpretation
-
-Production costs, crew/resource context and media-spend data are analysed as **inputs**. They are not converted into an ROI claim without a corresponding downstream value measure.
-
-### 12.7 Chronological control
-
-Historical events are placed in the phase in which they occurred. Pre-*Let's Fly Away* manager-led performances are not presented as later creative-operations outcomes.
-
-### 12.8 Hypothesis mapping
-
-The historical belief that visible online traction supported media/live opportunities is represented as an untested causal chain with candidate drivers and barriers. External literature is used to establish plausibility and identify mechanisms worth testing, not to retroactively prove the chain.
-
-## 13. Why the analysis remains exploratory
-
-The data can identify **where paid-social response differed**. They cannot isolate **why** the difference occurred because complete explanatory variables are missing: creative taxonomy, stable ad IDs, audience, placement, device, budget strategy, campaign-specific timing, organic baselines and controlled test assignments.
-
-The wider campaign has the same limitation. The historical account records television, radio, live and club opportunities, but those outcomes sit within a system containing prior manager-led industry access, production quality, paid media, organic response, relationships and offline promotion. No dataset was designed to separate their effects.
-
-This does not prevent all inference. For example, if Bunda's CPM is higher than the link-campaign CPM but its CPC is lower, arithmetic supports the conclusion that cheap impressions alone are insufficient to explain the low CPC. What remains unobserved is the causal reason for the high click rate.
-
-## 14. Current sector context
-
-Nielsen (2025) is used as current industry measurement context: it argues that abundant metrics do not create clarity unless KPIs are connected to business priorities and interpreted in context. IAB UK's current Measurement Hub is used for its objective-led measurement orientation and emphasis on outcomes, standards and transparency ([Nielsen, 2025](https://www.nielsen.com/insights/2025/why-strategy-matters-more-than-tools-roi/); [IAB UK, 2026](https://www.iabuk.com/measurement)).
-
-Pulse Nigeria (2025) is used only as contemporary Nigerian sector commentary. It reports practitioner concerns about saturation, rising spend across social/influencer and radio/TV activity, weak conversion from engagement to durable outcomes, and the continuing role of offline audience connection ([Pulse Nigeria, 2025](https://www.pulse.ng/story/the-state-of-music-marketing-in-nigeria-so-expensive-yet-little-return-2025082718333654913)). Because it is journalistic and published after the campaign period, it is not used to validate historical costs or establish causal effects.
-
-## 15. Reproducibility and evidence status
-
-`analysis/retrospective_analysis.py` reads the sanitised CSV and reproduces the campaign-level numerical analysis. `analysis/summary.json` stores machine-readable verified outputs.
-
-Evidence is distinguished by status:
-
-- **Source-recorded:** values contained directly in the Meta workbook or account screenshot.
-- **Derived:** calculations such as CTR, CPC, CPM, shares and sensitivity results computed from source-recorded values.
-- **Author-reported historical context:** production spend, crew size, chronology, offline activity and opportunity history remembered or retained outside the Meta workbook.
-- **External research/sector context:** literature used to define concepts, evaluate plausible mechanisms and design stronger future tests.
-
-These evidence types are not treated as interchangeable.
+See [PIPELINE.md](PIPELINE.md) for the stage-by-stage workflow and [TECHNICAL_AUDIT.md](TECHNICAL_AUDIT.md) for the script/product assessment.
 
 ## References
 
-Gander, J.M. (2015) 'Situating creative production: recording studios and the making of a pop song', *Management Decision*, 53(4), pp. 843–856. [https://doi.org/10.1108/MD-03-2014-0165](https://doi.org/10.1108/MD-03-2014-0165).
+Gander, J.M. (2015) 'Situating creative production: recording studios and the making of a pop song', *Management Decision*, 53(4), pp. 843–856. https://doi.org/10.1108/MD-03-2014-0165
 
-IAB UK (2026) 'Measurement Hub'. [https://www.iabuk.com/measurement](https://www.iabuk.com/measurement).
+Lovett, M.J. and Staelin, R. (2016) 'The role of paid, earned, and owned media in building entertainment brands: reminding, informing, and enhancing enjoyment', *Marketing Science*, 35(1), pp. 142–157. https://doi.org/10.1287/mksc.2015.0961
 
-Li, F., Larimo, J. and Leonidou, L.C. (2021) 'Social media marketing strategy: definition, conceptualization, taxonomy, validation, and future agenda', *Journal of the Academy of Marketing Science*, 49, pp. 51–70. [https://doi.org/10.1007/s11747-020-00733-3](https://doi.org/10.1007/s11747-020-00733-3).
+Throsby, D. (2006) 'An artistic production function: theory and an application to Australian visual artists', *Journal of Cultural Economics*, 30, pp. 1–14. https://doi.org/10.1007/s10824-005-9001-4
 
-Lovett, M.J. and Staelin, R. (2016) 'The Role of Paid, Earned, and Owned Media in Building Entertainment Brands: Reminding, Informing, and Enhancing Enjoyment', *Marketing Science*, 35(1), pp. 142–157. [https://doi.org/10.1287/mksc.2015.0961](https://doi.org/10.1287/mksc.2015.0961).
+Van den Broeck, J. et al. (2005) 'Data Cleaning: Detecting, Diagnosing, and Editing Data Abnormalities', *PLOS Medicine*, 2(10), e267. https://doi.org/10.1371/journal.pmed.0020267
 
-Nielsen (2025) 'Why strategy matters more than tools for measurement in marketing'. [https://www.nielsen.com/insights/2025/why-strategy-matters-more-than-tools-roi/](https://www.nielsen.com/insights/2025/why-strategy-matters-more-than-tools-roi/).
+Wickham, H. (2014) 'Tidy Data', *Journal of Statistical Software*, 59(10), pp. 1–23. https://doi.org/10.18637/jss.v059.i10
 
-Okolie, D.H. and Onwuegbuna, I.E. (2024) 'Evolving Trends in Radio Popularization of Nigerian Urban Music', *Nsukka Journal of the Humanities*, 32(1), pp. 76–108. [Full text](https://www.researchgate.net/publication/380345560_Evolving_Trends_in_Radio_Popularization_of_Nigerian_Urban_Music).
+Wilson, G. et al. (2014) 'Best Practices for Scientific Computing', *PLOS Biology*, 12(1), e1001745. https://doi.org/10.1371/journal.pbio.1001745
 
-Polak, N. and Schaap, J. (2024) 'Write, record, optimize? How musicians reflect on music optimization strategies in the creative production process', *New Media & Society*. [https://doi.org/10.1177/14614448241243095](https://doi.org/10.1177/14614448241243095).
+Sandve, G.K. et al. (2013) 'Ten Simple Rules for Reproducible Computational Research', *PLOS Computational Biology*, 9(10), e1003285. https://doi.org/10.1371/journal.pcbi.1003285
 
-Pulse Nigeria (2025) 'The state of music marketing in Nigeria: So expensive, yet little return', 27 August. [https://www.pulse.ng/story/the-state-of-music-marketing-in-nigeria-so-expensive-yet-little-return-2025082718333654913](https://www.pulse.ng/story/the-state-of-music-marketing-in-nigeria-so-expensive-yet-little-return-2025082718333654913).
+Wilkinson, M.D. et al. (2016) 'The FAIR Guiding Principles for scientific data management and stewardship', *Scientific Data*, 3, 160018. https://doi.org/10.1038/sdata.2016.18
 
-Throsby, D. (2006) 'An Artistic Production Function: Theory and an Application to Australian Visual Artists', *Journal of Cultural Economics*, 30(1), pp. 1–14. [https://doi.org/10.1007/s10824-005-9001-4](https://doi.org/10.1007/s10824-005-9001-4).
+Trisovic, A. et al. (2022) 'A large-scale study on research code quality and execution', *Scientific Data*, 9, 60. https://doi.org/10.1038/s41597-022-01143-6
 
-Yousef, M., Dietrich, T. and Rundle-Thiele, S. (2021) 'Social Advertising Effectiveness in Driving Action: A Study of Positive, Negative and Coactive Appeals on Social Media', *International Journal of Environmental Research and Public Health*, 18(11), 5954. [https://doi.org/10.3390/ijerph18115954](https://doi.org/10.3390/ijerph18115954).
+Munzner, T. (2009) 'A Nested Model for Visualization Design and Validation', *IEEE Transactions on Visualization and Computer Graphics*, 15(6), pp. 921–928. https://doi.org/10.1109/TVCG.2009.111
