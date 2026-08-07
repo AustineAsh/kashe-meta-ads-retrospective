@@ -13,7 +13,7 @@ The historical workbook itself is restricted because one campaign name contains 
    This is not described as comprehensive data cleaning. The script verifies the source hash, locates the header from labels, checks that the duplicated campaign-name fields agree, verifies that the ranking fields contain no usable values, keeps every source campaign row, converts analysis fields into consistent values, redacts the historical WhatsApp number, and flags the four rows whose result type/results/cost-per-result fields are blank. It does not impute missing values, infer deleted creative characteristics or remove genuine extreme campaigns.
 
 3. **Validation — `scripts/validate_data.py`**  
-   The public CSV is checked for expected columns, row identifiers, privacy leakage, non-negative numeric values, reach/impression consistency, result-type flags and the arithmetic relationship between spend, results and exported cost per result. All 122 rows with recognised result types reconcile within `1e-6`.
+   The public CSV is checked for expected columns, row identifiers, privacy leakage, non-negative numeric values, reach/impression consistency, result-type flags and the arithmetic relationship between spend, results and exported cost per result. All 122 rows with recognised result types reconcile within `1e-6`. A semantic fingerprint also checks that the prepared public records match the verified private-source preparation independently of harmless CSV newline or numeric-format differences.
 
 4. **Analysis — `scripts/analyse_campaigns.py`**  
    Result types are kept separate. The script calculates the published Meta KPIs, campaign-level distribution statistics, concentration and sensitivity analyses, the exact two-row Bunda traffic case, and a conservative lower-bound subset based only on surviving names that explicitly contain `Bunda`.
@@ -53,7 +53,7 @@ Code-quality checks used in CI:
 ruff check scripts tests
 ```
 
-The tests include an end-to-end equality check: when the restricted workbook is present, `prepare_data.py` must recreate the committed public CSV byte for byte. GitHub Actions also runs the tests and regenerates downstream products on every push or pull request.
+The tests include an end-to-end source-equivalence check. When the restricted workbook is present, `prepare_data.py` must produce the same structured campaign records as the committed public CSV. The comparison uses a semantic fingerprint rather than requiring byte-for-byte equality, so harmless differences in CSV line endings or numeric text formatting do not count as data differences. GitHub Actions also runs the tests and regenerates downstream products on every push or pull request.
 
 ## Why the pipeline is structured this way
 
