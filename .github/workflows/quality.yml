@@ -5,7 +5,7 @@ on:
   pull_request:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   test:
@@ -26,20 +26,9 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Rebuild public analysis products
         run: python -m scripts.run_pipeline --from-public-csv
-      - name: Record successful reproducibility run and generated products
-        if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
+      - name: Confirm committed public products are reproducible
         run: |
-          python - <<'PY'
-          import json, os
-          from pathlib import Path
-          Path('analysis/ci_success.json').write_text(
-              json.dumps({'status': 'pass', 'tested_commit': os.environ['GITHUB_SHA']}, indent=2),
-              encoding='utf-8'
-          )
-          PY
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add \
+          git diff --exit-code -- \
             data/meta_campaign_export_sanitized.csv \
             analysis/data_preparation_summary.json \
             analysis/validation_report.json \
@@ -48,7 +37,4 @@ jobs:
             analysis/top_link_click_rows.csv \
             analysis/bunda_named_rows_lower_bound.csv \
             analysis/run_manifest.json \
-            analysis/ci_success.json \
             assets/
-          git commit -m "Verify and regenerate reproducible analysis products"
-          git push
