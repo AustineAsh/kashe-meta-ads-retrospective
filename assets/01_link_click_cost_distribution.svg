@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="440" viewBox="0 0 760 440">
+<style>text{font-family:Arial,sans-serif;fill:#111} .axis{stroke:#111;stroke-width:1} .bar{fill:#666} .pt{fill:#555;opacity:.65}</style>
+<text x="380.0" y="26" text-anchor="middle" font-size="16" font-weight="bold">Distribution of campaign cost per link click</text>
+<line class="axis" x1="75" y1="50" x2="75" y2="375"/>
+<line class="axis" x1="75" y1="375" x2="735" y2="375"/>
+<rect class="bar" x="76.0" y="50.0" width="31.0" height="325.0"/>
+<rect class="bar" x="109.0" y="206.5" width="31.0" height="168.5"/>
+<rect class="bar" x="142.0" y="356.9" width="31.0" height="18.1"/>
+<rect class="bar" x="175.0" y="338.9" width="31.0" height="36.1"/>
+<rect class="bar" x="208.0" y="326.9" width="31.0" height="48.1"/>
+<rect class="bar" x="241.0" y="363.0" width="31.0" height="12.0"/>
+<rect class="bar" x="274.0" y="363.0" width="31.0" height="12.0"/>
+<rect class="bar" x="307.0" y="363.0" width="31.0" height="12.0"/>
+<rect class="bar" x="340.0" y="375.0" width="31.0" height="0.0"/>
+<rect class="bar" x="373.0" y="375.0" width="31.0" height="0.0"/>
+<rect class="bar" x="406.0" y="375.0" width="31.0" height="0.0"/>
+<rect class="bar" x="439.0" y="375.0" width="31.0" height="0.0"/>
+<rect class="bar" x="472.0" y="375.0" width="31.0" height="0.0"/>
+<rect class="bar" x="505.0" y="375.0" width="31.0" height="0.0"/>
+<rect class="bar" x="538.0" y="375.0" width="31.0" height="0.0"/>
+<rect class="bar" x="571.0" y="375.0" width="31.0" height="0.0"/>
+<rect class="bar" x="604.0" y="375.0" width="31.0" height="0.0"/>
+<rect class="bar" x="637.0" y="375.0" width="31.0" height="0.0"/>
+<rect class="bar" x="670.0" y="375.0" width="31.0" height="0.0"/>
+<rect class="bar" x="703.0" y="369.0" width="31.0" height="6.0"/>
+<line x1="75.0" y1="375" x2="75.0" y2="380" stroke="#111"/>
+<text x="75.0" y="397" text-anchor="middle" font-size="11">0</text>
+<line x1="241.2" y1="375" x2="241.2" y2="380" stroke="#111"/>
+<text x="241.2" y="397" text-anchor="middle" font-size="11">100</text>
+<line x1="407.4" y1="375" x2="407.4" y2="380" stroke="#111"/>
+<text x="407.4" y="397" text-anchor="middle" font-size="11">200</text>
+<line x1="573.6" y1="375" x2="573.6" y2="380" stroke="#111"/>
+<text x="573.6" y="397" text-anchor="middle" font-size="11">300</text>
+<line x1="739.8" y1="375" x2="739.8" y2="380" stroke="#111"/>
+<text x="739.8" y="397" text-anchor="middle" font-size="11">400</text>
+<text x="405.0" y="422" text-anchor="middle" font-size="12">Cost per link click (NGN)</text>
+<text x="20" y="212.5" transform="rotate(-90 20 212.5)" text-anchor="middle" font-size="12">Number of campaigns</text>
+</svg>
