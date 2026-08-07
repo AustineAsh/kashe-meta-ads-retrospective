@@ -1,0 +1,35 @@
+name: Reproducibility checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: "pip"
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt -r requirements-dev.txt
+      - name: Lint Python code
+        run: ruff check scripts tests
+      - name: Compile Python modules
+        run: python -m compileall -q scripts tests
+      - name: Run unit and integration tests
+        run: python -m unittest discover -s tests -v
+      - name: Rebuild public analysis products
+        run: python -m scripts.run_pipeline --from-public-csv
+      - name: Confirm committed products are reproducible
+        run: |
+          git diff --exit-code -- \
+            analysis/summary.json \
+            analysis/validation_report.json \
+            analysis/result_type_summary.csv \
+            analysis/top_link_click_rows.csv \
+            analysis/bunda_named_rows_lower_bound.csv \
+            analysis/run_manifest.json \
+            assets/
