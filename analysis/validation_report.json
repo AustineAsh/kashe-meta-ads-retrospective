@@ -8,6 +8,8 @@
   "cost_per_result_rows_checked": 122,
   "cost_per_result_rows_reconciled": 122,
   "max_cost_per_result_absolute_difference": 4.9484540909361385e-09,
+  "semantic_fingerprint_sha256": "e7bd7362a87011574993c559b52f9540a3330cbe6ffe8ddfa683892f69935544",
+  "expected_semantic_fingerprint_sha256": "e7bd7362a87011574993c559b52f9540a3330cbe6ffe8ddfa683892f69935544",
   "errors": [],
   "warnings": []
 }
