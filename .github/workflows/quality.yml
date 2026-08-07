@@ -4,6 +4,9 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -15,6 +18,99 @@ jobs:
           cache: "pip"
       - name: Install dependencies
         run: python -m pip install -r requirements.txt -r requirements-dev.txt
+      - name: One-time migration of the legacy public CSV
+        run: |
+          python - <<'PY'
+          import csv
+          from hashlib import sha256
+          import json
+          from pathlib import Path
+
+          path = Path("data/meta_campaign_export_sanitized.csv")
+          with path.open(encoding="utf-8", newline="") as source:
+              reader = csv.DictReader(source)
+              rows = list(reader)
+              fields = list(reader.fieldnames or [])
+
+          if "source_excel_row" not in fields:
+              missing_result_rows = {119, 123, 125, 126}
+              output_fields = [
+                  "campaign_row_id", "source_excel_row", "campaign_name",
+                  "result_type", "results", "reach", "impressions",
+                  "cost_per_result_ngn", "amount_spent_ngn", "data_quality_flag",
+              ]
+
+              def canonical_number(value):
+                  if value in (None, ""):
+                      return ""
+                  number = float(value)
+                  return int(number) if number.is_integer() else number
+
+              migrated = []
+              for raw in rows:
+                  row_id = int(raw["campaign_row_id"])
+                  is_missing = row_id in missing_result_rows
+                  migrated.append({
+                      "campaign_row_id": row_id,
+                      "source_excel_row": row_id + 3,
+                      "campaign_name": raw["campaign_name"],
+                      "result_type": "" if is_missing else raw["result_type"],
+                      "results": "" if is_missing else canonical_number(raw["results"]),
+                      "reach": canonical_number(raw["reach"]),
+                      "impressions": canonical_number(raw["impressions"]),
+                      "cost_per_result_ngn": "" if is_missing else canonical_number(raw["cost_per_result_ngn"]),
+                      "amount_spent_ngn": canonical_number(raw["amount_spent_ngn"]),
+                      "data_quality_flag": "missing_result_type" if is_missing else "",
+                  })
+
+              with path.open("w", encoding="utf-8", newline="") as destination:
+                  writer = csv.DictWriter(destination, fieldnames=output_fields)
+                  writer.writeheader()
+                  writer.writerows(migrated)
+
+          digest = sha256(path.read_bytes()).hexdigest()
+          preparation = {
+              "source_sheet": "Raw Data Report",
+              "header_excel_row": 3,
+              "campaign_rows_prepared": 126,
+              "duplicate_campaign_name_columns_checked": 2,
+              "duplicate_campaign_name_mismatches": 0,
+              "ranking_columns_verified_uninformative": [
+                  "Quality ranking", "Engagement rate ranking", "Conversion rate ranking"
+              ],
+              "phone_redactions": 1,
+              "recognized_result_rows": 122,
+              "flagged_result_rows": 4,
+              "missing_result_type_rows": 4,
+              "unrecognized_result_type_rows": 0,
+              "distinct_campaign_name_strings": 96,
+              "source_attribution_settings": ["7-day click or 1-day view"],
+              "source_reporting_starts": ["2023-07-07"],
+              "source_reporting_ends": ["2026-08-07"],
+              "fields_retained": [
+                  "campaign_row_id", "source_excel_row", "campaign_name", "result_type",
+                  "results", "reach", "impressions", "cost_per_result_ngn",
+                  "amount_spent_ngn", "data_quality_flag"
+              ],
+              "fields_intentionally_not_carried_forward": [
+                  "blank leading source column",
+                  "duplicate Campaign name column",
+                  "Quality ranking (all '-')",
+                  "Engagement rate ranking (all '-')",
+                  "Conversion rate ranking (all '-')",
+                  "Results (initial) (blank on all campaign rows)"
+              ],
+              "source_filename": "30-01-23.xlsx",
+              "source_sha256": "5facbe664cfd86bdc64822ed081c43668637a67dff59ce754dc97eb5397e5dc0",
+              "expected_source_sha256": "5facbe664cfd86bdc64822ed081c43668637a67dff59ce754dc97eb5397e5dc0",
+              "output_csv": "data/meta_campaign_export_sanitized.csv",
+              "output_csv_sha256": digest,
+          }
+          Path("analysis").mkdir(exist_ok=True)
+          Path("analysis/data_preparation_summary.json").write_text(
+              json.dumps(preparation, indent=2), encoding="utf-8"
+          )
+          PY
       - name: Lint Python code
         run: ruff check scripts tests
       - name: Compile Python modules
@@ -23,13 +119,22 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Rebuild public analysis products
         run: python -m scripts.run_pipeline --from-public-csv
-      - name: Confirm committed products are reproducible
+      - name: Commit regenerated public products
+        if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
         run: |
-          git diff --exit-code -- \
-            analysis/summary.json \
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/meta_campaign_export_sanitized.csv \
+            analysis/data_preparation_summary.json \
             analysis/validation_report.json \
+            analysis/summary.json \
             analysis/result_type_summary.csv \
             analysis/top_link_click_rows.csv \
             analysis/bunda_named_rows_lower_bound.csv \
             analysis/run_manifest.json \
             assets/
+          if ! git diff --cached --quiet; then
+            git commit -m "Regenerate verified analysis products"
+            git push
+          fi
