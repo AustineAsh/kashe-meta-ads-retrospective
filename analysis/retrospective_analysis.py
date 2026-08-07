@@ -1,6 +1,8 @@
 """Reproduce descriptive metrics and charts for the historical Meta Ads export.
 
 Exploratory/descriptive only. This script does not estimate causal creative effects.
+Author-reported production costs, crew size, chronology and offline activity are deliberately
+kept outside this script because they are not fields in the Meta export.
 """
 from pathlib import Path
 import csv
@@ -99,7 +101,7 @@ def main():
     clean = [r for r in rows if not r["data_quality_flag"]]
     ambiguous = [r for r in rows if r["data_quality_flag"]]
 
-    # Arithmetic validation: every recognized row should satisfy
+    # Arithmetic validation: every recognised row should satisfy
     # exported cost per result ≈ spend / results.
     reconciled = 0
     max_abs_diff = 0.0
@@ -140,19 +142,49 @@ def main():
         "median_campaign_frequency": statistics.median(frequency),
     })
 
-    bunda = [r for r in link if r["campaign_name"] in ("Bunda Youtube – official", "Bunda Youtube")]
-    bunda_summary = summarize(bunda)
+    # The two clearly labelled YouTube traffic rows used in the original sensitivity analysis.
+    bunda_youtube = [
+        r for r in link
+        if r["campaign_name"] in ("Bunda Youtube – official", "Bunda Youtube")
+    ]
+    bunda_youtube_summary = summarize(bunda_youtube)
     total_export_spend = sum(r["amount_spent_ngn"] or 0 for r in rows)
-    bunda_summary.update({
-        "derived_link_ctr_pct": bunda_summary["derived_result_rate_pct"],
-        "weighted_cpc_ngn": bunda_summary["weighted_cost_per_result_ngn"],
-        "share_of_link_clicks_pct": bunda_summary["results"] / link_summary["results"] * 100,
-        "share_of_link_spend_pct": bunda_summary["spend_ngn"] / link_summary["spend_ngn"] * 100,
-        "share_of_total_export_spend_pct": bunda_summary["spend_ngn"] / total_export_spend * 100,
-        "share_of_link_impressions_pct": bunda_summary["impressions"] / link_summary["impressions"] * 100,
+    total_export_impressions = sum(r["impressions"] or 0 for r in rows)
+    bunda_youtube_summary.update({
+        "derived_link_ctr_pct": bunda_youtube_summary["derived_result_rate_pct"],
+        "weighted_cpc_ngn": bunda_youtube_summary["weighted_cost_per_result_ngn"],
+        "share_of_link_clicks_pct": bunda_youtube_summary["results"] / link_summary["results"] * 100,
+        "share_of_link_spend_pct": bunda_youtube_summary["spend_ngn"] / link_summary["spend_ngn"] * 100,
+        "share_of_total_export_spend_pct": bunda_youtube_summary["spend_ngn"] / total_export_spend * 100,
+        "share_of_link_impressions_pct": bunda_youtube_summary["impressions"] / link_summary["impressions"] * 100,
     })
 
-    non_bunda = [r for r in link if r not in bunda]
+    # Wider lower-bound Bunda subset: every recognised row whose surviving name explicitly contains 'Bunda'.
+    # Some generic/truncated campaign names may also relate to Bunda, so this is not a complete campaign total.
+    bunda_named = [r for r in clean if "bunda" in r["campaign_name"].lower()]
+    bunda_named_link = [r for r in bunda_named if r["result_type"] == "Link clicks"]
+    bunda_named_thruplay = [r for r in bunda_named if r["result_type"] == "ThruPlay"]
+
+    bunda_named_link_summary = summarize(bunda_named_link)
+    bunda_named_link_summary.update({
+        "derived_link_ctr_pct": bunda_named_link_summary["derived_result_rate_pct"],
+        "weighted_cpc_ngn": bunda_named_link_summary["weighted_cost_per_result_ngn"],
+    })
+    bunda_named_thruplay_summary = summarize(bunda_named_thruplay)
+
+    bunda_named_summary = {
+        "scope_note": "Lower-bound subset identified only where the surviving campaign-name string explicitly contains 'Bunda'. Generic/truncated names may omit other Bunda-related rows.",
+        "rows": len(bunda_named),
+        "spend_ngn": sum(r["amount_spent_ngn"] or 0 for r in bunda_named),
+        "impressions": int(sum(r["impressions"] or 0 for r in bunda_named)),
+        "sum_campaign_reach_not_unique": int(sum(r["reach"] or 0 for r in bunda_named)),
+        "share_of_total_export_spend_pct": sum(r["amount_spent_ngn"] or 0 for r in bunda_named) / total_export_spend * 100,
+        "share_of_total_export_impressions_pct": sum(r["impressions"] or 0 for r in bunda_named) / total_export_impressions * 100,
+        "link_click_rows": bunda_named_link_summary,
+        "thruplay_rows": bunda_named_thruplay_summary,
+    }
+
+    non_bunda = [r for r in link if r not in bunda_youtube]
     non_bunda_summary = summarize(non_bunda)
     non_bunda_summary.update({
         "derived_link_ctr_pct": non_bunda_summary["derived_result_rate_pct"],
@@ -183,7 +215,7 @@ def main():
     overall["derived_result_rate_pct"] = None
 
     output = {
-        "scope_note": "Result types are heterogeneous. Do not sum results across objectives or interpret summed reach as unique people.",
+        "scope_note": "Result types are heterogeneous. Do not sum results across objectives or interpret summed reach as unique people. Author-reported production/offline resource inputs are outside this Meta-only quantitative file.",
         "dataset": {
             "campaign_rows": len(rows),
             "recognized_rows": len(clean),
@@ -198,9 +230,10 @@ def main():
         },
         "by_result_type": by_type,
         "link_click_analysis": link_summary,
-        "bunda_youtube_traffic_rows": bunda_summary,
-        "link_clicks_excluding_bunda": non_bunda_summary,
-        "link_clicks_excluding_bunda_and_pressure": remaining_summary,
+        "bunda_youtube_traffic_rows": bunda_youtube_summary,
+        "explicit_bunda_name_lower_bound_subset": bunda_named_summary,
+        "link_clicks_excluding_bunda_youtube_rows": non_bunda_summary,
+        "link_clicks_excluding_bunda_youtube_and_pressure": remaining_summary,
         "top_3_link_click_rows_concentration": top3_summary,
     }
 
