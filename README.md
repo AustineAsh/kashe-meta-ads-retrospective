@@ -1,11 +1,13 @@
 # Kashe Music Group Meta Ads — Retrospective Creative Performance Analysis
 
+> **Review status:** This repository was prepared with substantial assistance from ChatGPT. The analysis, code and written interpretation are currently **provisional and have not yet completed my full independent review and verification**. The underlying historical advertising activity and source data relate to work I personally carried out; ChatGPT did not participate in the original campaigns. See [AI Assistance and Review Status](#ai-assistance-and-review-status) below.
+
 This repository is a **retrospective, exploratory analysis** of historical Meta Ads campaign data from my work at Kashe Music Group / Santeri. I originally ran these campaigns before completing my later formal training in Information Technology, Information Systems, statistics, research methods and data analysis.
 
 I built this repository for two reasons:
 
 1. to re-examine the surviving campaign data with the analytical discipline I have developed since; and
-2. to provide a transparent evidence trail for claims in my CV and job applications about having run paid media and used Meta performance data to inform creative decisions.
+2. to provide a transparent evidence trail for claims in my CV and cover letter about having run paid media and used Meta performance data to inform creative decisions.
 
 **This is not a causal or explanatory study.** It does not claim that a particular hook, creator, format, audience or campaign setting caused the observed performance differences. Most historical posts/creatives are no longer publicly available, and the export does not contain enough controls or metadata for causal attribution.
 
@@ -22,7 +24,7 @@ The sanitized export contains **126 campaign rows** and records:
 - **3,977 Facebook likes attributed** to two audience-growth campaigns;
 - **86 messaging conversations started** across two messaging campaigns.
 
-A separate Meta account screenshot records **NGN 1,492,844.45 spent at account level**. Because this is higher than the export total, I treat the workbook as an incomplete subset of the account's historical spend rather than a complete lifetime account export.
+A separate Meta account screenshot records **NGN 1,492,844.45 spent at account level**. Because this is higher than the export total, the workbook is treated provisionally as an incomplete subset of the account's historical spend rather than a complete lifetime account export.
 
 ## One useful retrospective case: Bunda traffic campaigns
 
@@ -61,12 +63,12 @@ The analysis deliberately separates three evidence levels:
 
 | Claim | Evidence in this repository | Status |
 |---|---|---|
-| I ran Meta advertising campaigns | 126 campaign rows plus account-level spend screenshot | Supported |
+| I ran Meta advertising campaigns | 126 campaign rows plus account-level spend evidence | Supported by surviving source material; pending final author review of repository presentation |
 | I used Meta performance data to compare campaign/post performance | Large observed variation in comparable link-click campaign outcomes; my historical role/context | Supported as work practice; not a causal claim |
-| Meta account spend reached about NGN 1.49m | Account screenshot | Supported at account level |
-| Two Bunda YouTube traffic campaigns generated 565k+ Meta link clicks | Sanitized export | Supported |
-| Two audience-growth campaigns generated 3,977 attributed Facebook likes | Sanitized export | Supported |
-| Messaging campaigns generated 86 conversations started | Sanitized export | Supported |
+| Meta account spend reached about NGN 1.49m | Account screenshot supplied for the analysis | Supported at account level |
+| Two Bunda YouTube traffic campaigns generated 565k+ Meta link clicks | Sanitized export | Supported by the export |
+| Two audience-growth campaigns generated 3,977 attributed Facebook likes | Sanitized export | Supported by the export |
+| Messaging campaigns generated 86 conversations started | Sanitized export | Supported by the export |
 | The Facebook page grew from 0 to about 5,000 followers in four months | Historical account recollection; export partially supports paid audience growth through 3,977 attributed likes | Partially supported; no follower time series in this export |
 | The Bunda video reached 230k+ YouTube views | Historical campaign record/recollection; original video is no longer publicly available | Not independently reproduced from this Meta export |
 | Meta caused later shows, media appearances or industry opportunities | Not established by this dataset | Not claimed |
@@ -74,6 +76,7 @@ The analysis deliberately separates three evidence levels:
 ## Key limitations
 
 - The analysis is **exploratory and descriptive**, not causal.
+- The analysis, code and written interpretation remain provisional until I complete my independent review.
 - Most original posts and creative assets were later deleted or disabled, so retrospective coding of hooks, formats, angles and creators is incomplete.
 - The original workbook contains a historical WhatsApp phone number in one campaign name. The raw workbook is therefore **not published publicly**; a sanitized derivative is provided instead.
 - The workbook's `Reporting starts` and `Reporting ends` values are repeated across campaign rows, so they are treated as the **export/reporting window**, not individual campaign start/end dates.
@@ -97,6 +100,23 @@ python analysis/retrospective_analysis.py
 
 The script reads `data/meta_campaign_export_sanitized.csv`, regenerates the summary and charts, and applies the same guardrails documented in `METHODOLOGY.md`.
 
-## AI assistance disclosure
+## AI Assistance and Review Status
 
-Generative AI assisted with code development, documentation structure and quality checks. I defined the analytical purpose and evidence boundaries, selected the comparisons, checked the source data, reviewed the calculations and retain responsibility for the interpretation. AI-generated output is not treated as independent evidence.
+This repository was prepared with substantial assistance from **ChatGPT**.
+
+ChatGPT was used to:
+
+- analyse the historical Meta Ads export;
+- calculate and summarise campaign-level metrics;
+- identify data-quality issues and analytical limitations;
+- generate the initial Python analysis code;
+- draft the README, methodology, findings, provenance notes and supporting explanatory text; and
+- help structure the repository as evidence supporting statements made in my CV and cover letter.
+
+The purpose of this repository is primarily **evidential and exploratory**. It is intended to demonstrate that I previously managed paid advertising activity and used campaign-performance information in my creative and promotional decision-making, while retrospectively applying the analytical knowledge I have developed since.
+
+The analysis is descriptive and exploratory rather than explanatory or causal. Missing historical creative assets, incomplete campaign metadata and other data limitations prevent reliable conclusions about why individual campaigns performed differently.
+
+At the time of this declaration, the AI-generated analysis, code and written interpretation have **not yet completed my full independent review and verification**. They should therefore be treated as provisional. I will review the calculations against the source data, inspect the code and analytical assumptions, correct any errors or overstatements, and take responsibility for the final version before representing the repository as my completed analysis.
+
+The underlying historical advertising activity and source data relate to work I personally carried out. **ChatGPT did not participate in the original campaigns.**
