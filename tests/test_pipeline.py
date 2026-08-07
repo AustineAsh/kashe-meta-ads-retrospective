@@ -9,6 +9,7 @@ import unittest
 
 from scripts.analyse_campaigns import analyse
 from scripts.campaign_data import load_rows
+from scripts.canonicalize_public_csv import canonicalize
 from scripts.prepare_data import prepare_rows, redact_campaign_name, write_csv
 from scripts.validate_data import validate
 from scripts.xlsx_reader import column_index
@@ -35,6 +36,11 @@ class TestPreparationHelpers(unittest.TestCase):
 
 
 class TestPublishedDataset(unittest.TestCase):
+    def test_public_csv_canonicalization_is_idempotent(self) -> None:
+        before = PUBLIC_CSV.read_bytes()
+        canonicalize(PUBLIC_CSV)
+        self.assertEqual(PUBLIC_CSV.read_bytes(), before)
+
     def test_validation_passes(self) -> None:
         report = validate(PUBLIC_CSV)
         self.assertEqual(report["status"], "pass")

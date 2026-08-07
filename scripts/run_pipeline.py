@@ -45,6 +45,8 @@ def main() -> None:
         if args.allow_source_hash_mismatch:
             prepare_args.append("--allow-source-hash-mismatch")
         run_module("scripts.prepare_data", *prepare_args)
+    else:
+        run_module("scripts.canonicalize_public_csv")
 
     run_module("scripts.validate_data")
     run_module("scripts.analyse_campaigns")

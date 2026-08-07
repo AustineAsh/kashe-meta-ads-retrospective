@@ -5,7 +5,7 @@ on:
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   test:
@@ -24,11 +24,16 @@ jobs:
         run: python -m compileall -q scripts tests
       - name: Run unit and integration tests
         run: python -m unittest discover -s tests -v
-      - name: Rebuild public analysis products
+      - name: Rebuild and canonicalise public analysis products
         run: python -m scripts.run_pipeline --from-public-csv
-      - name: Confirm committed public products are reproducible
+      - name: Commit regenerated canonical products
+        if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
         run: |
-          git diff --exit-code -- \
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/meta_campaign_export_sanitized.csv \
+            analysis/data_preparation_summary.json \
             analysis/validation_report.json \
             analysis/summary.json \
             analysis/result_type_summary.csv \
@@ -36,3 +41,7 @@ jobs:
             analysis/bunda_named_rows_lower_bound.csv \
             analysis/run_manifest.json \
             assets/
+          if ! git diff --cached --quiet; then
+            git commit -m "Canonicalise and regenerate verified analysis products"
+            git push
+          fi

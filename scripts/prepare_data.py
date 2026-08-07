@@ -1,7 +1,7 @@
 """Prepare a public, analysis-ready CSV from the original Meta Ads workbook.
 
 This is targeted data preparation rather than an attempt to comprehensively
-'clean' a historical advertising export.  The script preserves source rows,
+'clean' a historical advertising export. The script preserves source rows,
 removes only redundant/uninformative fields, converts the fields used in the
 analysis to consistent values, flags rather than guesses at missing result fields,
 and redacts the historical phone number embedded in one campaign name.
@@ -15,6 +15,7 @@ import json
 from pathlib import Path
 import re
 from typing import Sequence
+import unicodedata
 
 from .xlsx_reader import read_worksheet
 
@@ -59,8 +60,9 @@ def file_sha256(path: Path) -> str:
 
 
 def redact_campaign_name(name: str) -> tuple[str, bool]:
-    """Redact phone digits only when they appear in an obvious WhatsApp URL."""
-    redacted = PHONE_QUERY_RE.sub(r"\1[REDACTED]", name)
+    """Normalise text representation and redact phone digits in WhatsApp URLs."""
+    canonical = unicodedata.normalize("NFC", name).replace("\r\n", "\n").replace("\r", "\n")
+    redacted = PHONE_QUERY_RE.sub(r"\1[REDACTED]", canonical)
     redacted = WA_ME_RE.sub(r"\1[REDACTED]", redacted)
     return redacted, redacted != name
 
@@ -136,8 +138,6 @@ def prepare_rows(source: Path) -> tuple[list[dict[str, object]], dict[str, objec
         "reporting_ends": require_position(headers, "Reporting ends"),
     }
 
-    # The ranking fields contain '-' in every source row.  Verify that before
-    # excluding them from the public analysis-ready table.
     ranking_labels = [
         "Quality ranking",
         "Engagement rate ranking",
@@ -155,8 +155,6 @@ def prepare_rows(source: Path) -> tuple[list[dict[str, object]], dict[str, objec
     unexpected_initial_results: list[tuple[int, object]] = []
 
     for source_index, row in enumerate(rows[header_index + 1 :], start=header_index + 2):
-        # source_index is one-based Excel row number because enumerate starts at
-        # header_index + 2 while Python row indexes are zero based.
         if not any(value not in (None, "") for value in row):
             continue
 
@@ -232,6 +230,11 @@ def prepare_rows(source: Path) -> tuple[list[dict[str, object]], dict[str, objec
             + repr(unexpected_initial_results[:5])
         )
 
+    source_rows = [
+        row
+        for row in rows[header_index + 1 :]
+        if any(value not in (None, "") for value in row)
+    ]
     summary = {
         "source_sheet": SOURCE_SHEET,
         "header_excel_row": header_index + 1,
@@ -250,19 +253,13 @@ def prepare_rows(source: Path) -> tuple[list[dict[str, object]], dict[str, objec
         ),
         "distinct_campaign_name_strings": len({row["campaign_name"] for row in prepared}),
         "source_attribution_settings": sorted({
-            str(row[column["attribution_setting"]] or "")
-            for row in rows[header_index + 1 :]
-            if any(value not in (None, "") for value in row)
+            str(row[column["attribution_setting"]] or "") for row in source_rows
         }),
         "source_reporting_starts": sorted({
-            str(row[column["reporting_starts"]] or "")
-            for row in rows[header_index + 1 :]
-            if any(value not in (None, "") for value in row)
+            str(row[column["reporting_starts"]] or "") for row in source_rows
         }),
         "source_reporting_ends": sorted({
-            str(row[column["reporting_ends"]] or "")
-            for row in rows[header_index + 1 :]
-            if any(value not in (None, "") for value in row)
+            str(row[column["reporting_ends"]] or "") for row in source_rows
         }),
         "fields_retained": OUTPUT_FIELDS,
         "fields_intentionally_not_carried_forward": [
@@ -280,7 +277,9 @@ def prepare_rows(source: Path) -> tuple[list[dict[str, object]], dict[str, objec
 def write_csv(rows: list[dict[str, object]], output: Path) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open("w", encoding="utf-8", newline="") as destination:
-        writer = csv.DictWriter(destination, fieldnames=OUTPUT_FIELDS)
+        writer = csv.DictWriter(
+            destination, fieldnames=OUTPUT_FIELDS, lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(rows)
 
