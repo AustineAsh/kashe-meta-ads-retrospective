@@ -37,6 +37,16 @@ The public CSV is a generated, sanitised derivative rather than a manually edite
 
 No genuine high- or low-performing campaign is removed as an outlier. No deleted creative characteristic is inferred from an incomplete name, and no missing campaign/ad identifier is invented.
 
+## Public/private equivalence check
+
+The public CSV was regenerated directly from the verified private-source preparation. `scripts/validate_data.py` also stores the expected **semantic fingerprint** of those prepared records. This comparison normalises numeric representations before hashing, so it verifies the structured values rather than treating a different line ending or equivalent number formatting as a data error.
+
+The current validation report records the same semantic fingerprint for the public data and the verified source-derived records:
+
+`e7bd7362a87011574993c559b52f9540a3330cbe6ffe8ddfa683892f69935544`
+
+This provides an additional guard against the public derivative silently drifting from the verified source transformation.
+
 ## Account-spend screenshot
 
 - File: `evidence/meta_account_spend_screenshot.png`
@@ -64,6 +74,6 @@ The analysis selects recognised rows whose surviving campaign name explicitly co
 ## Reproducibility records
 
 - `analysis/data_preparation_summary.json` records preparation decisions and hashes.
-- `analysis/validation_report.json` records automated validation results.
+- `analysis/validation_report.json` records automated validation results and the semantic source-equivalence fingerprint.
 - `analysis/run_manifest.json` records runtime versions and SHA-256 hashes of code/configuration and derived products.
-- `tests/test_pipeline.py` includes an end-to-end private-source test requiring the preparation stage to reproduce the committed public CSV byte-for-byte when the verified workbook is present.
+- `tests/test_pipeline.py` includes a private-source test requiring the prepared workbook records and committed public CSV to produce the same semantic fingerprint when the verified workbook is present.
