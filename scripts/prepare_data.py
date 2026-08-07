@@ -38,20 +38,14 @@ OUTPUT_FIELDS = [
     "campaign_row_id",
     "source_excel_row",
     "campaign_name",
-    "delivery_status",
-    "delivery_level",
-    "attribution_setting",
     "result_type",
     "results",
     "reach",
     "impressions",
     "cost_per_result_ngn",
     "amount_spent_ngn",
-    "reporting_starts",
-    "reporting_ends",
     "data_quality_flag",
 ]
-
 PHONE_QUERY_RE = re.compile(r"(?i)(phone=)\+?\d{7,15}")
 WA_ME_RE = re.compile(r"(?i)(wa\.me/)\+?\d{7,15}")
 
@@ -198,9 +192,6 @@ def prepare_rows(source: Path) -> tuple[list[dict[str, object]], dict[str, objec
                 "campaign_row_id": len(prepared) + 1,
                 "source_excel_row": source_index,
                 "campaign_name": campaign_name,
-                "delivery_status": str(row[column["delivery_status"]] or ""),
-                "delivery_level": str(row[column["delivery_level"]] or ""),
-                "attribution_setting": str(row[column["attribution_setting"]] or ""),
                 "result_type": result_type,
                 "results": numeric_value(
                     row[column["results"]],
@@ -221,8 +212,6 @@ def prepare_rows(source: Path) -> tuple[list[dict[str, object]], dict[str, objec
                 "amount_spent_ngn": numeric_value(
                     row[column["amount_spent_ngn"]], "Amount spent", source_index
                 ),
-                "reporting_starts": str(row[column["reporting_starts"]] or ""),
-                "reporting_ends": str(row[column["reporting_ends"]] or ""),
                 "data_quality_flag": flag,
             }
         )
@@ -260,6 +249,21 @@ def prepare_rows(source: Path) -> tuple[list[dict[str, object]], dict[str, objec
             row["data_quality_flag"] == "unrecognized_result_type" for row in prepared
         ),
         "distinct_campaign_name_strings": len({row["campaign_name"] for row in prepared}),
+        "source_attribution_settings": sorted({
+            str(row[column["attribution_setting"]] or "")
+            for row in rows[header_index + 1 :]
+            if any(value not in (None, "") for value in row)
+        }),
+        "source_reporting_starts": sorted({
+            str(row[column["reporting_starts"]] or "")
+            for row in rows[header_index + 1 :]
+            if any(value not in (None, "") for value in row)
+        }),
+        "source_reporting_ends": sorted({
+            str(row[column["reporting_ends"]] or "")
+            for row in rows[header_index + 1 :]
+            if any(value not in (None, "") for value in row)
+        }),
         "fields_retained": OUTPUT_FIELDS,
         "fields_intentionally_not_carried_forward": [
             "blank leading source column",

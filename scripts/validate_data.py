@@ -14,17 +14,12 @@ EXPECTED_FIELDS = {
     "campaign_row_id",
     "source_excel_row",
     "campaign_name",
-    "delivery_status",
-    "delivery_level",
-    "attribution_setting",
     "result_type",
     "results",
     "reach",
     "impressions",
     "cost_per_result_ngn",
     "amount_spent_ngn",
-    "reporting_starts",
-    "reporting_ends",
     "data_quality_flag",
 }
 
@@ -149,9 +144,6 @@ def validate(path: Path = PUBLIC_CSV) -> dict[str, object]:
         "cost_per_result_rows_checked": cpr_checked,
         "cost_per_result_rows_reconciled": cpr_reconciled,
         "max_cost_per_result_absolute_difference": max_cpr_difference,
-        "distinct_attribution_settings": sorted({row["attribution_setting"] for row in rows}),
-        "distinct_reporting_starts": sorted({row["reporting_starts"] for row in rows}),
-        "distinct_reporting_ends": sorted({row["reporting_ends"] for row in rows}),
         "errors": errors,
         "warnings": warnings,
     }
