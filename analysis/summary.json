@@ -1,5 +1,5 @@
 {
-  "scope_note": "Result types are heterogeneous. Do not sum results across objectives or interpret summed reach as unique people.",
+  "scope_note": "Result types are heterogeneous. Do not sum results across objectives or interpret summed reach as unique people. Author-reported production/offline resource inputs are outside this Meta-only quantitative file.",
   "dataset": {
     "campaign_rows": 126,
     "recognized_rows": 122,
@@ -69,7 +69,40 @@
     "share_of_total_export_spend_pct": 38.0784042130369,
     "share_of_link_impressions_pct": 26.87107765579585
   },
-  "link_clicks_excluding_bunda": {"rows": 104, "spend_ngn": 515495.61, "impressions": 7111942, "sum_campaign_reach_not_unique": 6454200, "results": 69476.0, "weighted_cost_per_result_ngn": 7.419765242673729, "derived_result_rate_pct": 0.9768921062629589, "derived_cpm_ngn": 72.48310095892232, "impressions_per_summed_reach": 1.1019091444330824, "derived_link_ctr_pct": 0.9768921062629589, "weighted_cpc_ngn": 7.419765242673729},
-  "link_clicks_excluding_bunda_and_pressure": {"rows": 103, "spend_ngn": 505670.61, "impressions": 7001727, "sum_campaign_reach_not_unique": 6358131, "results": 36062.0, "weighted_cost_per_result_ngn": 14.02225639176973, "derived_result_rate_pct": 0.5150443597700967, "derived_cpm_ngn": 72.22084065831187, "impressions_per_summed_reach": 1.1012240861347462, "derived_link_ctr_pct": 0.5150443597700967, "weighted_cpc_ngn": 14.02225639176973},
+  "explicit_bunda_name_lower_bound_subset": {
+    "scope_note": "Lower-bound subset identified only where the surviving campaign-name string explicitly contains 'Bunda'. Generic/truncated names may omit other Bunda-related rows.",
+    "rows": 18,
+    "spend_ngn": 450035.75,
+    "impressions": 3085893,
+    "sum_campaign_reach_not_unique": 2062597,
+    "share_of_total_export_spend_pct": 43.725559536068246,
+    "share_of_total_export_impressions_pct": 29.864744598222998,
+    "link_click_rows": {
+      "rows": 15,
+      "spend_ngn": 438522.79,
+      "impressions": 2809859,
+      "sum_campaign_reach_not_unique": 1801911,
+      "results": 568819.0,
+      "weighted_cost_per_result_ngn": 0.7709355524340783,
+      "derived_result_rate_pct": 20.24368482546633,
+      "derived_cpm_ngn": 156.06576344222253,
+      "impressions_per_summed_reach": 1.5593772389424339,
+      "derived_link_ctr_pct": 20.24368482546633,
+      "weighted_cpc_ngn": 0.7709355524340783
+    },
+    "thruplay_rows": {
+      "rows": 3,
+      "spend_ngn": 11512.96,
+      "impressions": 276034,
+      "sum_campaign_reach_not_unique": 260686,
+      "results": 29344.0,
+      "weighted_cost_per_result_ngn": 0.39234460196292253,
+      "derived_result_rate_pct": 10.630574494446336,
+      "derived_cpm_ngn": 41.70848518660744,
+      "impressions_per_summed_reach": 1.0588754286766455
+    }
+  },
+  "link_clicks_excluding_bunda_youtube_rows": {"rows": 104, "spend_ngn": 515495.61, "impressions": 7111942, "sum_campaign_reach_not_unique": 6454200, "results": 69476.0, "weighted_cost_per_result_ngn": 7.419765242673729, "derived_result_rate_pct": 0.9768921062629589, "derived_cpm_ngn": 72.48310095892232, "impressions_per_summed_reach": 1.1019091444330824, "derived_link_ctr_pct": 0.9768921062629589, "weighted_cpc_ngn": 7.419765242673729},
+  "link_clicks_excluding_bunda_youtube_and_pressure": {"rows": 103, "spend_ngn": 505670.61, "impressions": 7001727, "sum_campaign_reach_not_unique": 6358131, "results": 36062.0, "weighted_cost_per_result_ngn": 14.02225639176973, "derived_result_rate_pct": 0.5150443597700967, "derived_cpm_ngn": 72.22084065831187, "impressions_per_summed_reach": 1.1012240861347462, "derived_link_ctr_pct": 0.5150443597700967, "weighted_cpc_ngn": 14.02225639176973},
   "top_3_link_click_rows_concentration": {"rows": 3, "spend_ngn": 401738.64, "impressions": 2723484, "sum_campaign_reach_not_unique": 1715676, "results": 599178.0, "weighted_cost_per_result_ngn": 0.6704829616574708, "derived_result_rate_pct": 22.000422987614392, "derived_cpm_ngn": 147.509087624528, "impressions_per_summed_reach": 1.587411609184951, "share_of_link_clicks_pct": 94.3230904854858, "share_of_link_spend_pct": 44.27314797595462, "share_of_link_impressions_pct": 28.004369262528083}
 }
