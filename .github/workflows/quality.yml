@@ -16,6 +16,51 @@ jobs:
         with:
           python-version: "3.13"
           cache: "pip"
+      - name: Canonicalise the committed public CSV
+        run: python -m scripts.canonicalize_public_csv
+      - name: Record public semantic fingerprint diagnostic
+        run: |
+          python - <<'PY'
+          import csv
+          from hashlib import sha256
+          import json
+          from pathlib import Path
+          from scripts.validate_data import semantic_fingerprint
+
+          path = Path("data/meta_campaign_export_sanitized.csv")
+          with path.open(encoding="utf-8", newline="") as source:
+              reader = csv.DictReader(source)
+              rows = list(reader)
+              fields = list(reader.fieldnames or [])
+
+          row_hashes = []
+          for row in rows:
+              payload = json.dumps(
+                  row, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+              ).encode("utf-8")
+              row_hashes.append({
+                  "campaign_row_id": int(row["campaign_row_id"]),
+                  "sha256_raw_strings": sha256(payload).hexdigest(),
+              })
+
+          diagnostic = {
+              "semantic_fingerprint_sha256": semantic_fingerprint(rows, fields),
+              "row_hashes": row_hashes,
+          }
+          Path("analysis/public_fingerprint_diagnostic.json").write_text(
+              json.dumps(diagnostic, indent=2), encoding="utf-8"
+          )
+          PY
+      - name: Commit canonical public data and diagnostic before quality gates
+        if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/meta_campaign_export_sanitized.csv analysis/data_preparation_summary.json analysis/public_fingerprint_diagnostic.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record public-source semantic fingerprint"
+            git push
+          fi
       - name: Install dependencies
         run: python -m pip install -r requirements.txt -r requirements-dev.txt
       - name: Lint Python code
@@ -24,24 +69,15 @@ jobs:
         run: python -m compileall -q scripts tests
       - name: Run unit and integration tests
         run: python -m unittest discover -s tests -v
-      - name: Rebuild and canonicalise public analysis products
+      - name: Rebuild public analysis products
         run: python -m scripts.run_pipeline --from-public-csv
-      - name: Commit regenerated canonical products
+      - name: Commit regenerated products
         if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add \
-            data/meta_campaign_export_sanitized.csv \
-            analysis/data_preparation_summary.json \
-            analysis/validation_report.json \
-            analysis/summary.json \
-            analysis/result_type_summary.csv \
-            analysis/top_link_click_rows.csv \
-            analysis/bunda_named_rows_lower_bound.csv \
-            analysis/run_manifest.json \
-            assets/
+          git add analysis/validation_report.json analysis/summary.json analysis/result_type_summary.csv analysis/top_link_click_rows.csv analysis/bunda_named_rows_lower_bound.csv analysis/run_manifest.json assets/
           if ! git diff --cached --quiet; then
-            git commit -m "Canonicalise and regenerate verified analysis products"
+            git commit -m "Regenerate verified analysis products"
             git push
           fi
