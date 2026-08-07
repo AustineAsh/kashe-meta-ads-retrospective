@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "rows": 126,
+  "recognized_result_rows": 122,
+  "flagged_result_rows": 4,
+  "missing_result_type_rows": 4,
+  "distinct_campaign_name_strings": 96,
+  "cost_per_result_rows_checked": 122,
+  "cost_per_result_rows_reconciled": 122,
+  "max_cost_per_result_absolute_difference": 4.9484540909361385e-09,
+  "errors": [],
+  "warnings": []
+}

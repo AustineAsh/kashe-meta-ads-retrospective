@@ -1,0 +1,44 @@
+{
+  "purpose": "Provenance manifest for the reproducible portfolio analysis pipeline.",
+  "run_command_private_source": "python -m scripts.run_pipeline",
+  "run_command_public_products": "python -m scripts.run_pipeline --from-public-csv",
+  "source": {
+    "filename": "30-01-23.xlsx",
+    "sha256": "5facbe664cfd86bdc64822ed081c43668637a67dff59ce754dc97eb5397e5dc0",
+    "publicly_committed": false,
+    "reason_restricted": "The original export contains a historical WhatsApp phone number; the public CSV is a redacted derivative."
+  },
+  "runtime": {
+    "python_major_minor": "3.13",
+    "matplotlib": "3.10.8"
+  },
+  "code_sha256": {
+    "scripts/xlsx_reader.py": "5145b420425141e30e8d97a3df759d065e4b728c6fa763f3b3171e6f56578db5",
+    "scripts/campaign_data.py": "3b6525a9c16cce48a6cc9191c5a84e79c4134ed216cdd3d75aa4a2d64e672667",
+    "scripts/prepare_data.py": "8b2250bcb2b52f084eed0d7bd012e2b0eac8f38280702b5335648289dc6d8248",
+    "scripts/validate_data.py": "d95ad6f7329dc1e411eea5f53cd0f487c18e398c4d025693fb8b953f03c49b89",
+    "scripts/analyse_campaigns.py": "50452b9de7da62c44fc461a497198ded5c91bd21f7fcec6d811ae44e3ed9a2e2",
+    "scripts/visualise_results.py": "5dc8bca00cb92a13315a41fbb3eabd716f3dee5b17c4b45ca6da745fbd56cf46",
+    "scripts/build_manifest.py": "2e55792b20efe76ce49ba087282996f4e884a380edb0ef5a80b6b8f5072fe0e2",
+    "scripts/run_pipeline.py": "58cb18681b5c76c1fc3c53365940f1f46ad37d04adf0880327bc2c0a2c20eb3e",
+    "tests/test_pipeline.py": "d3a06fc1eee87257d4a9d519179f234b4dc8c76ac6710d61c126251791c439a6",
+    ".github/workflows/quality.yml": "d94806790811a47a2520cf844c2a9110bb34b8911220b8685d32389b426c017d",
+    "requirements.txt": "12a0a7bc6e1b1254c2f593a250e6ccff4dbd3cf0b27d6819696a9db86f4e530d",
+    "requirements-dev.txt": "fe660099e1bd0cf92eed7dc210df7950df3dc888e16aea6519cf2d033622f825",
+    "pyproject.toml": "9b0c9367799279e41e32c468cd9d805480a814a89d0f5687c81daa1cd3d72ea6"
+  },
+  "product_sha256": {
+    "data/meta_campaign_export_sanitized.csv": "6db6628f4e90ca1def2ab4af3e09068a95eceace1e53ff6df83c8a81ad2a0887",
+    "analysis/data_preparation_summary.json": "66a7c85717379f2d9e0abe9617e0c1905d53b8e3078f0e38b661924c8df17774",
+    "analysis/validation_report.json": "6be5e180cabf0422874bef13a5389b6caa8582aae400d81c31df6c94b9331cdf",
+    "analysis/summary.json": "8bcbbae99086150906b0e5514a01f59ab08e107cb4a31ff97ba1d0bf6652243f",
+    "analysis/result_type_summary.csv": "c96add543854cdfc904a98ed1e038b3862b022a16505f27fb435e335372d105f",
+    "analysis/top_link_click_rows.csv": "e3215a6aff74c5efc01756c53c23c3c1286a439d7a6f034e9a5dcbe7a1dd50e5",
+    "analysis/bunda_named_rows_lower_bound.csv": "59cafd9df5ea93225fa861a82f611fa5979dce6fd968aab364a7de55fdf924f3",
+    "assets/01_link_click_cost_distribution.svg": "39423692436dadeac3857f9d0cd415e83952196cbf764849b430723690a5a5c6",
+    "assets/02_spend_vs_link_clicks.svg": "3f042fa9cad1e39f97be171236a1627b3c7ce5b864d34bb08453f3bff8d91fc9",
+    "assets/03_top_link_click_campaigns.svg": "01c5025ef9c1d65aebac4d8a8c084e290878d82c6fc902f7b02434577d12dc81",
+    "assets/04_cpc_sensitivity.svg": "a87fa2fd1c2c18b8c16f5e4afa905a7b9ea983f8488607de1ddb4894d31839e4",
+    "assets/05_ctr_sensitivity.svg": "fbceffd131a863c3c95134b2ac2531e0763388449bd1beabef216628fb936f69"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "source_sheet": "Raw Data Report",
+  "header_excel_row": 3,
+  "campaign_rows_prepared": 126,
+  "duplicate_campaign_name_columns_checked": 2,
+  "duplicate_campaign_name_mismatches": 0,
+  "ranking_columns_verified_uninformative": [
+    "Quality ranking",
+    "Engagement rate ranking",
+    "Conversion rate ranking"
+  ],
+  "phone_redactions": 1,
+  "recognized_result_rows": 122,
+  "flagged_result_rows": 4,
+  "missing_result_type_rows": 4,
+  "unrecognized_result_type_rows": 0,
+  "distinct_campaign_name_strings": 96,
+  "source_attribution_settings": [
+    "7-day click or 1-day view"
+  ],
+  "source_reporting_starts": [
+    "2023-07-07"
+  ],
+  "source_reporting_ends": [
+    "2026-08-07"
+  ],
+  "fields_retained": [
+    "campaign_row_id",
+    "source_excel_row",
+    "campaign_name",
+    "result_type",
+    "results",
+    "reach",
+    "impressions",
+    "cost_per_result_ngn",
+    "amount_spent_ngn",
+    "data_quality_flag"
+  ],
+  "fields_intentionally_not_carried_forward": [
+    "blank leading source column",
+    "duplicate Campaign name column",
+    "Quality ranking (all '-')",
+    "Engagement rate ranking (all '-')",
+    "Conversion rate ranking (all '-')",
+    "Results (initial) (blank on all campaign rows)"
+  ],
+  "source_filename": "30-01-23.xlsx",
+  "source_sha256": "5facbe664cfd86bdc64822ed081c43668637a67dff59ce754dc97eb5397e5dc0",
+  "expected_source_sha256": "5facbe664cfd86bdc64822ed081c43668637a67dff59ce754dc97eb5397e5dc0",
+  "output_csv": "data/meta_campaign_export_sanitized.csv",
+  "output_csv_sha256": "6db6628f4e90ca1def2ab4af3e09068a95eceace1e53ff6df83c8a81ad2a0887"
+}
