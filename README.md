@@ -49,13 +49,13 @@ The 106 link-click campaigns show large descriptive variation in campaign-level 
 
 That variation is the basis for **exploratory questions**, not explanations. With the original creative assets, audience settings, placements, dates and controlled test design, I would want to investigate whether differences were associated with factors such as creative format, hook, creator, audience, placement, campaign objective, spend level or optimisation settings. Those variables are not recoverable reliably from this export alone.
 
-![Distribution of campaign cost per link click](assets/01_link_click_cost_distribution.png)
+The charts below are descriptive visualisations generated from the sanitized campaign data.
 
-![Spend versus link clicks](assets/02_spend_vs_link_clicks.png)
+![Distribution of campaign cost per link click](assets/01_link_click_cost_distribution.svg)
 
-![Top campaigns by link clicks](assets/03_top_link_click_campaigns.png)
+![Spend versus link clicks](assets/02_spend_vs_link_clicks.svg)
 
-![Selected cost per result examples](assets/04_selected_cost_per_result.png)
+![Top campaigns by link clicks](assets/03_top_link_click_campaigns.svg)
 
 ## Evidence boundary
 
