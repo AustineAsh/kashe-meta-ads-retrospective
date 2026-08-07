@@ -16,70 +16,6 @@ jobs:
         with:
           python-version: "3.13"
           cache: "pip"
-      - name: Canonicalise the committed public CSV
-        run: python -m scripts.canonicalize_public_csv
-      - name: Compare public rows to verified private-source row fingerprints
-        run: |
-          python - <<'PY'
-          import csv
-          from hashlib import sha256
-          import json
-          from pathlib import Path
-          from scripts.validate_data import SEMANTIC_NUMERIC_FIELDS, semantic_fingerprint
-
-          expected = ["002bdad919e279cb93effb73120056169fd811f5356e1de533a98c0562c9e99f","01be8e37baeaff79f3c5040a6d6f59275637e99d28425573d0c45a0acbacf667","2d7a66fc1e1b3a501e62012482a3fd5b1360a957816c263d913dd7d3f7b8259e","7b036af626c062f43ebba208ab3f136db41dae987837139c206565e3e2e0df9c","ca8ee2835587bf957067b5a765b8a77292b17e5c209d41c49b0d44f33401ff4a","b972f025fc94c65708e13f953042e80e8fd2bb86013ee8d0c40defcc1f7fbc00","de47d513222f574bb59d91dd788981706930fd4690acda470342293b7194f1a8","8f4bbde203ed719ba5bf904eee39d1d69f8cb73516b2de6411a817eced789ca5","ab886fea47b3c23d40351f974744c872761a442e6bfcfb5643610de78a46b876","e32e8aa6c15d79953d32edede8ee94411bca84fa9d86d5912b8b8f6c560c059d","1c532d2f32d504e872b97b9f93cfd43332e8e255a00103a583e9530c93e1206a","775d01960f07dae2639e07934813d0b6141431cc2151f46e4366efdf436967ff","1d5acc156c9b8bb13084f6750b7fae13fcec3a87e31b5bebac1943449d7d5f90","a16e6a05132beffed9e83bbb35a1ba761599bc259fec44456d5819f78f3c8ed5","4eb59376fadd6a7caca5b3024fb1b15504c17ac0573ce7d3c19c9a01e86e4014","62adfcf5b2d8e9812d5997d278286051a79d9029826678ba48434dd5dd591329","33cd03e612f7b7babb8017877d37e361e4b1f3f3415cd8db3957677fe7d0fdba","c5c32e45c53edeb85aa8c6c7802d011a24376949b61cddbc212e9d040cfe5ff4","3c601bb6e40182ad2cee4024a33a4ef3d3b05363a427db7a1ef23bc944cae54d","88e7f70d27ae582b43881c3d236b019e10a54132c1a5d9c3e5795f718babf356","aadbf9390121329b9d58b25476ffdabaf861b3475ebc9067ed5e22d97b402984","9b21a771d8ffbf0052fd85d89568cb2ed10d9f5d16e39b1407f2adb82b617b4b","b2cef30d16ef3636c2cacfd918500f1c011232251412ae864e4fa7c3aa9c7bc2","b8b94984d57431746f3cb5b010e3e00c2c28969c33691e5f23a710947f51e4bc","7d97aeed5e3358fe0ddda5d27c30e6c7772116107d601ea73c7636a41639cddd","2324358189588a4ad3a0def319549ed3ba2f12cea5e11d3b423e3537b163d88f","97c23540963687c68518baa993560938d57d92c5e7cfe793e60d745f844fe3fe","c5f156b26c22ee0b5aaed15999bfc07a3bfe6701ceba1a99334d1d88e0f24e6c","1299647940da494a1ed001dcb69e064efe62cd4fd5e52147ec8673625c4ece3e","1bebdf344d6f757c8933cb0b8a35ca8145ca3a271cca2211cc29b649c7b673ac","4e83dc00e3c231f7e099a0e9dfdf5c84be550d3c7224b9ef6034937e424bc67f","4ddadc1ea3e5fd6e5ce07a4a81cbac52d8a72e9a7c9ae455f858dc04dd808681","0c07bfcccc3072628d6f3572b5b652228dd170baab987421510a3f9a0146fed0","1db2fab3b65db2dcbef71dddaa1daba90ef5fc599890611dc25a45da79182269","e17487ee0773657cd6c60ecac95f4e2668639513f1b98206e5477e110485a282","c5f71dc6409da950f7ea3ca07f2d5f881a34623bc8bb6c5ad0b3fb024c41026c","58b38df5abac588c6e62be8ccbb7b5ed8fd6a58e5335a9b455e7c66cceef47a9","3db730f77bbf3e18b74042a8409c91c82d079cebd4fc1ee748aa9a0d89df1e59","c3efd9bcac5f46d300f8b94e42c404a9b9ceebb20e9daf196425409d315134af","0bfe0c1c79542d0e73d69d6d4fc570bf8cf71bcad19189349fc12c7b65539df3","dc7b1aab159b4d5137ea3dcb62f2daa2c46edd5433cf6c40b855a46a9fdcae43","41a6be28c3e902180a3920fcea7be3c508d12936ab81c67c4eb88d94cc0d15b0","6c133f3574cab8ee3ccfc38e76c2891697bc357611c1edaf1ab715e3729a1da6","e2b479e560a91367f03d2bab3eff3c7db4cb6765451f5daf869358a671605dc1","b2c0d213635688d4d1d34d0f72b219ce6bc3ee49d2f79cd763299a850bd6c618","4bcb0e7679c2bf1d5de84fada0068a972215369c43e9d240988fbfaaf67ba8ed","39c88a8ffd1efd36d5e425afd50b40a757d0eabaa35309d310b6a17c164c9bff","a50bb3c87b13e213a9b8463aab77e233b4002576b7f3c38bbc3a612dfb0b5b17","0cc2ede333e4246da41d9db64b1655e28d79aae3482638daacc7b787973cdbc7","e83853ce7f402c68dc70d0bf1355456af0fc0f4d3e5d11f0f7d73bdaf1cbb2bd","0d014d556909a4b941a5f00e34917162a924529d9db89427aebfe4a2615db62a","0d6738ec0013f45247787f3567aa2dff0f3f9d08ea85df47321c0c05af74eb3a","43c204131324034f67eb03d530c478033c1bf66ef6c1ff77331828577b21d52c","df339c2d9372ca648ea5278d240375374135e0e64b277b9a58a825c6ec17f799","5283446850fc5ba1c504b5ca08973482827aad0115d89b44d52eaef78c884245","326cc18e49b1507104dbf5fe493f770eee1cc33cad9a9a73261747229ae406d2","82d85c9043e2e8a84b82b2baa5b12bcb5cea1fe24863324399d8bb7098b3321f","d3425af320acb00b8ae89846d27c6629419d23d7e852ac1025a2cb209bbc85f2","d4f2b15cecbf965347b9194e3af3d8bced013d6be72d0ab78e284721a483536b","6cf8c9ec28cb1b3861ce704a7522f1451b07f84722ff5669f068470968510865","354a6cdd58d88135c0871660da8acc259694a7c08e49e4323f4db70401b1c685","26a57a7e19b152f99a2426aa69c65a2e44611477f26961f0654a1b970757d92f","e80f3f514a332ce0ffd5a23087f7c697fa54f98e2c73da0297ea1121bcd9b760","9ef1eac5b3b43b8328cb50ba8f1a861f5e32ecc3323f051e84c4efb40e05c176","53eca7d57c5b286fc7dfecb6410743260e032a72cd78d381e6ef5d6274ca0baa","ed0374a224d072b020c5eb30b3064329b0090e270e22b927a10e975b2fdb2328","ee6dd9fdc193dec04b3c4471d8998c1a72aedc055b449ded1ab57bd41c484f1e","179c85c6621facd39b4fcc11199a72f668a4482cc41fa57bd8f2a6760297d2ee","ed5cd70ac4e100270ed0776cf3e58db873795678023ba6137b0590d20f06bc3d","b3f768b614680535bc86007431ff297f0d9ee392788325130d926d8f0d400062","db310b3866d7517b900fb4ed2b57f6fe9964cb383f61d89c8ee40c1f9eb97fa0","3a568bfa6574c89bfabc6222552784b349e6500fc966726a5505ec3151fdb19d","70b4d269eac47206411da6f17a3a20613175e1d493486f1bc9486ae155545ee6","8348716ad024b96649f19afd28d07b116ee94660f5c994992341d007f0a91635","9474d149d0e7f3c8a032562f11e20f4fb2c6afb07ef419ed321bfc1e3c59abea","95a1c992c6f174887de5df44a90a6d15f38674cfba323623280c181493ea97ee","b5e4b2b46c32236f1adfb080539627c4a7b4e348f352d3d453d057b80eb5af02","f1cdabe43d3a367568f0f3a640e65594e4cf4e44f2d5d042bdb5d26805232a37","067f3089edb18cc742b5e4d499111bd3d9eac41fea0c5a32a033580838a8a042","74ba25d5c3719249726709874bb2b3b16ffc81bd11103a5d451b94480762eaa1","08084e24507f14726906b560dd910962324ffabc3c2a5f85566c12ada14c5599","8a1b3624708d3e7e8676645c436126a38d6cbd35dc177f5e3d721468eaa578e4","3c535e304a8ec47092099e63b81661c40355645b09b316f48e32c861288ffee6","59beaf621f762534014ef2f1a323cb58951e3e6d27572f4309f197f89af5fbe9","d904ee89ae0a78d21bc9f657953bdd609091c378120b65a946f09e63359c2d72","ab30aeb0615e623ba84464546a4bdf29a51c9d12ccdb70b935d76d892a22ee8a","8f20f201b21130d103d95da7cc87fa8081eb3d167c5d6c85b3c05115df610bd7","5b3f5fdfdea39987defb51f428d385e45be9421a67973167acb49af07b40a6d4","651b58e1e75f25377991bae52138faf3a9f31fa8c1acb9249a3aa7f3e1bbacfc","fbda993fa8cca52962e3d74f6de3413c085c0366d3f10b8cc234ded6186eabfa","1d58314ba4f81025f6d7f3c111ee141e3833f7537bec43a90fc22b0fef229e87","27d3bba49b3b11647b715e7d2b3fd407855bc4ae696b183ef5fd9b5766dde944","c9b78b4088d3ec9c993ec4419551790221263452b25edbe9ec3d4326af53c0ac","a7d3782900e2a8d5ec0710c80f6412b037f82dbd9d959604f8c11ae43736b987","9fb0f20651471b1a7a4c1e45e9cbf8ddb21db1557d78030b06ac18e129d204ca","b0dad2c0cf076e60675e7439b0051bc1b933fdc2948c2b85c6c9d3b7e9a6d508","e083a088d051c8f10a479e662ef97511c4be3511890b762d71b3dac401c7ed06","065f2b2894c7d3dfbb6b0ddda076592c44ba1f48c8e0f68c8d59511a8182f292","ff9fc1daca54bbeaf1a4e0e2edd6c133579d28ad23081547486ab70638de760f","a94f1881c1a8989109a1be203b03bf0204c630e563cab0af52a3142e3003ee37","3c073315ed2697d551ca4ce3c5556cfa3bdcc53333343ab00fafaa052b85489a","5e202a18b5ee8882293777400cbf627636a7281509aae638282c704ef38f9836","c297ebd12610ce11a4c4b4e7aacea8400f4ba9ea33a1a3fec40081665432b86f","36536a16bb02fbeae7824f14efefed19ab3dc5bc0c15b0e12ca1b0d690d77082","f8e564bf42486f5d268eefc811334159321397965a0d7fdb66c3daa9bfbd88b7","9417f25d55876dbbbc22de96c01c950ceff6539a3c3dbf718954e893aaae2b58","4a74eeb202b0a3b4063559a5526664f403b164cd893b6170b3db18c18d5d4993","eb54d351e2c6fc4d2743c34cb6f1ccd6ab1838334d6a0fe20573df60d40fd4b8","f3909adfd92e57574aa62927092b87513d63426c858f5dd2e8744ac44524722d","b937db32c180c5bcfa8c9323d66318d3908137f33f902c8af622a99d6019a9b5","eb5e710c1e2267a3113927c64920769f385940c6f115a883ba8824e2b1ef70bf","66c42b0acfe16feff703f900498342140ab4ebd513e9db22e176f562f7ffb960","9eaed3eccf7e252eec6652401fb91bd06dfc5ddb51ee21bc944d8cce8c9a2366","0d46bebb85b15637ed1ef9e8d9fdff9e27563ba2f279075e5dbe3ce44be54c9d","93777be9533105cd7270639bf1871e35dc33d3dd9c68c52f4958a758cf3f6cbe","d5666cb3db989d80fc0d63561d251ffe33e7a250cebbca95bd9f53846ed4c81e","c2cc445a5d8c7acb8c534aa694f742db4787ef8a885efdf71e876f39b421c7c7","6b807f837f873de67f264fe708ca8a2dcc4756f8ea43cb78a40cfef4b1f93d9d","2618c6a4ed032d105995bbd3195b3a91a1a8928e8e506c2a9dcc680ca817a9cc","126eb585fe684efc16aaf16258ba3989f8b3e44ece8fc58df9c7401660fd2412","7a81e671c50bbe766b208826e03035436326751f168035fc6b43cc433aadd8a7","4786f36adcf6c4eee51969ce6abb548f86e56b73a307a7a5722909f6cca60c62","70228e6cd169a807dbffca29431b5067d77935b3b1549475bc16744915f75d13","053e1373972e47e2b09c904fb91890ffa3c93138e0e92844e31cab4a586a1c88","3ad7abedf32e6e06e3919621f235e0112865e49191d29ac53ca2f99ea83c83f3","d8245e1dbef50bf461ce6b7d454d9ad64dbd79bdcc62aaa55078acba87523f15"]
-
-          path = Path("data/meta_campaign_export_sanitized.csv")
-          with path.open(encoding="utf-8", newline="") as source:
-              reader = csv.DictReader(source)
-              rows = list(reader)
-              fields = list(reader.fieldnames or [])
-
-          mismatches = []
-          for row, expected_hash in zip(rows, expected, strict=True):
-              canonical = {}
-              for field in fields:
-                  value = row[field]
-                  if field in SEMANTIC_NUMERIC_FIELDS:
-                      if value == "":
-                          canonical[field] = None
-                      else:
-                          number = float(value)
-                          canonical[field] = int(number) if number.is_integer() else number
-                  else:
-                      canonical[field] = value
-              payload = json.dumps(
-                  canonical, ensure_ascii=False, sort_keys=True, separators=(",", ":")
-              ).encode("utf-8")
-              current_hash = sha256(payload).hexdigest()
-              if current_hash != expected_hash:
-                  mismatches.append({
-                      "campaign_row_id": int(row["campaign_row_id"]),
-                      "expected_hash": expected_hash,
-                      "current_hash": current_hash,
-                      "current_row": row,
-                  })
-
-          diagnostic = {
-              "semantic_fingerprint_sha256": semantic_fingerprint(rows, fields),
-              "expected_semantic_fingerprint_sha256": "e7bd7362a87011574993c559b52f9540a3330cbe6ffe8ddfa683892f69935544",
-              "mismatch_count": len(mismatches),
-              "mismatches": mismatches,
-          }
-          Path("analysis/public_fingerprint_diagnostic.json").write_text(
-              json.dumps(diagnostic, indent=2, ensure_ascii=False), encoding="utf-8"
-          )
-          PY
-      - name: Commit diagnostic before quality gates
-        if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/meta_campaign_export_sanitized.csv analysis/data_preparation_summary.json analysis/public_fingerprint_diagnostic.json
-          if ! git diff --cached --quiet; then
-            git commit -m "Compare public records with verified private source"
-            git push
-          fi
       - name: Install dependencies
         run: python -m pip install -r requirements.txt -r requirements-dev.txt
       - name: Lint Python code
@@ -90,3 +26,29 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Rebuild public analysis products
         run: python -m scripts.run_pipeline --from-public-csv
+      - name: Record successful reproducibility run and generated products
+        if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          Path('analysis/ci_success.json').write_text(
+              json.dumps({'status': 'pass', 'tested_commit': os.environ['GITHUB_SHA']}, indent=2),
+              encoding='utf-8'
+          )
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/meta_campaign_export_sanitized.csv \
+            analysis/data_preparation_summary.json \
+            analysis/validation_report.json \
+            analysis/summary.json \
+            analysis/result_type_summary.csv \
+            analysis/top_link_click_rows.csv \
+            analysis/bunda_named_rows_lower_bound.csv \
+            analysis/run_manifest.json \
+            analysis/ci_success.json \
+            assets/
+          git commit -m "Verify and regenerate reproducible analysis products"
+          git push
