@@ -1,15 +1,19 @@
-"""Reproduce descriptive metrics for the historical Meta Ads export.
+"""Reproduce descriptive metrics and charts for the historical Meta Ads export.
 
 Exploratory/descriptive only. This script does not estimate causal creative effects.
 """
 from pathlib import Path
 import csv
 import json
+import re
 import statistics
+
+import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "meta_campaign_export_sanitized.csv"
 OUT = ROOT / "analysis" / "summary.json"
+ASSETS = ROOT / "assets"
 
 NUMERIC = {"results", "reach", "impressions", "cost_per_result_ngn", "amount_spent_ngn"}
 
@@ -42,6 +46,52 @@ def summarize(rows):
         "derived_cpm_ngn": spend / impressions * 1000 if impressions else None,
         "impressions_per_summed_reach": impressions / reach if reach else None,
     }
+
+
+def clean_label(name, limit=45):
+    name = re.sub(r"[^\x20-\x7E]", "", name)
+    return name if len(name) <= limit else name[: limit - 3] + "..."
+
+
+def create_charts(link):
+    ASSETS.mkdir(exist_ok=True)
+
+    cpc = [r["cost_per_result_ngn"] for r in link]
+    plt.figure(figsize=(8, 5))
+    plt.hist(cpc, bins=25)
+    plt.xlabel("Campaign cost per link click (NGN)")
+    plt.ylabel("Number of campaign rows")
+    plt.title("Distribution of cost per link click")
+    plt.tight_layout()
+    plt.savefig(ASSETS / "01_link_click_cost_distribution.svg")
+    plt.close()
+
+    xs = [r["amount_spent_ngn"] for r in link if r["amount_spent_ngn"] and r["results"]]
+    ys = [r["results"] for r in link if r["amount_spent_ngn"] and r["results"]]
+    plt.figure(figsize=(8, 5.5))
+    plt.scatter(xs, ys, alpha=0.65)
+    plt.xscale("log")
+    plt.yscale("log")
+    plt.xlabel("Spend (NGN, log scale)")
+    plt.ylabel("Link clicks (log scale)")
+    plt.title("Spend and link-click outcomes by campaign row")
+    plt.tight_layout()
+    plt.savefig(ASSETS / "02_spend_vs_link_clicks.svg")
+    plt.close()
+
+    ranked = sorted(link, key=lambda r: r["results"] or 0, reverse=True)[:10]
+    labels = [clean_label(r["campaign_name"]) for r in ranked]
+    values = [r["results"] for r in ranked]
+    positions = list(range(len(ranked)))
+    plt.figure(figsize=(9, 6))
+    plt.barh(positions, values)
+    plt.yticks(positions, labels)
+    plt.gca().invert_yaxis()
+    plt.xlabel("Link clicks")
+    plt.title("Top 10 campaign rows by recorded link clicks")
+    plt.tight_layout()
+    plt.savefig(ASSETS / "03_top_link_click_campaigns.svg")
+    plt.close()
 
 
 def main():
@@ -155,6 +205,7 @@ def main():
     }
 
     OUT.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
+    create_charts(link)
     print(json.dumps(output, indent=2, ensure_ascii=False))
 
 
