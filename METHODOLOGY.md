@@ -6,11 +6,11 @@ This repository is a **retrospective exploratory analysis** of a historical musi
 
 The analysis asks what resources were committed, how media was deployed, what paid-social outcomes can be reconstructed, where performance was concentrated, and what additional data would be required to test the historical assumptions I made about market traction, gatekeeper interest and downstream opportunities.
 
-The repository also serves an evidential purpose by providing a transparent source trail for statements in my CV and cover letter concerning creative campaign management, paid media, audience development and performance-informed decision-making.
+The repository also provides a transparent portfolio evidence trail for creative campaign management, paid media, audience development and performance-informed decision-making.
 
 ## 2. Creative production as a resource system
 
-Throsby (2006) distinguishes artistic-production inputs including labour, operating capital and human capital. Gander (2015) provides a music-specific organisational perspective in which production brings together specialist people, material resources, knowledge and temporary project relationships under uncertainty ([Throsby, 2006](https://doi.org/10.1007/s10824-005-9001-4); [Gander, 2015](https://doi.org/10.1108/MD-03-2014-0165)).
+Throsby (2006) distinguishes artistic-production inputs including labour, operating capital and human capital. Gander's (2015) recording-studio study shows how spatial and material arrangements help regulate tasks, roles, review and decision-making in temporary teams working under uncertainty ([Throsby, 2006](https://doi.org/10.1007/s10824-005-9001-4); [Gander, 2015](https://doi.org/10.1108/MD-03-2014-0165)).
 
 Drawing on those concepts and the historical case, I use eight resource domains: **creative/intellectual assets; human capital and specialist labour; physical/technical/operating capital; financial capital; organisational/managerial capability; network/relational resources; media/channel resources; and information/analytical resources**. This is my resource map for this case rather than a taxonomy reproduced from either study.
 
@@ -42,6 +42,8 @@ The project distinguishes four evidence types:
 2. **derived measures** — calculations such as CTR, CPM, medians and concentration shares;
 3. **author-reported historical context** — production cost, team size, chronology and broader promotional activity not contained in the workbook; and
 4. **external research/sector evidence** — used to define concepts or establish contextual plausibility, not to overwrite the historical source data.
+
+The unit of observation is one exported campaign row. It is not a unique creative asset, ad-level record or person. Stable Meta campaign/ad IDs are absent, and 17 campaign-name strings recur across multiple rows, so repeated names are retained rather than treated as duplicates. The source is also weighted heavily toward traffic: 106 of 126 rows report link clicks, while each other recognised result type appears in only one to six rows. The main quantitative comparison therefore concerns link-click response; the smaller groups are descriptive evidence only.
 
 ## 6. Targeted data preparation, not comprehensive cleaning
 
@@ -107,7 +109,7 @@ The figures are descriptive. They do not supply missing creative variables or ca
 
 The computational workflow is split into preparation, validation, analysis, visualisation and provenance stages and is orchestrated by `scripts/run_pipeline.py`. `analysis/run_manifest.json` records runtime versions and hashes of code/configuration and generated products.
 
-Wilson et al. (2014) recommend readable modular code, automation, version control and testing in scientific computing; Sandve et al. (2013) similarly emphasise executable transformations and retaining what is needed to reproduce a result. Wilkinson et al. (2016) extend that logic to rich provenance and reusable metadata even where source data cannot be openly shared. Trisovic et al. (2022), examining more than 2,000 replication packages, identify missing dependencies, hard-coded paths and insufficient documentation as recurring barriers to re-execution ([Wilson et al., 2014](https://doi.org/10.1371/journal.pbio.1001745); [Sandve et al., 2013](https://doi.org/10.1371/journal.pcbi.1003285); [Wilkinson et al., 2016](https://doi.org/10.1038/sdata.2016.18); [Trisovic et al., 2022](https://doi.org/10.1038/s41597-022-01143-6)).
+Wilson et al. (2014) recommend readable modular code, automation, version control and testing in scientific computing; Sandve et al. (2013) similarly emphasise executable transformations and retaining what is needed to reproduce a result. Wilkinson et al. (2016) extend that logic to rich provenance and reusable metadata even where source data cannot be openly shared. Trisovic et al. (2022), examining more than 2,000 replication packages, identify missing dependencies, hard-coded paths, missing files, incomplete code and inadequate environment capture as recurring barriers to re-execution ([Wilson et al., 2014](https://doi.org/10.1371/journal.pbio.1001745); [Sandve et al., 2013](https://doi.org/10.1371/journal.pcbi.1003285); [Wilkinson et al., 2016](https://doi.org/10.1038/sdata.2016.18); [Trisovic et al., 2022](https://doi.org/10.1038/s41597-022-01143-6)).
 
 The public GitHub Actions workflow compiles and lints the code, runs the tests, rebuilds public products from the sanitised CSV and fails if committed outputs drift. The private workbook is deliberately excluded, so the Excel-to-CSV stage can only be rerun in an authorised local environment with the verified source present.
 

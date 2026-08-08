@@ -47,6 +47,6 @@
   "source_filename": "30-01-23.xlsx",
   "source_sha256": "5facbe664cfd86bdc64822ed081c43668637a67dff59ce754dc97eb5397e5dc0",
   "expected_source_sha256": "5facbe664cfd86bdc64822ed081c43668637a67dff59ce754dc97eb5397e5dc0",
-  "output_csv": "data/meta_campaign_export_sanitized.csv",
+  "output_csv": "data\\meta_campaign_export_sanitized.csv",
   "output_csv_sha256": "a58b461bd6dca81c5d652dcbaf6bed725db639a549ef56f2f3a72dabec936e31"
 }

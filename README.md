@@ -1,57 +1,65 @@
-# Kashe Music Group / Santeri: Retrospective Creative Campaign Analysis
+# Kashe Music Group / Santeri: Retrospective Campaign Performance Analysis
 
-> **Verification status:** The historical campaigns and source data relate to work I personally carried out. I reviewed the source workbook and the analysis. The quantitative workflow now reproduces the public dataset, validation checks, KPI tables and visualisations from the verified workbook in one pipeline. ChatGPT assisted with code development, literature discovery and substantial drafting of the explanatory text. I retain responsibility for the published interpretation.
+A reproducible portfolio case study connecting my earlier music-campaign work with the data, research and information-quality discipline developed through my later IT and MSc study.
 
-This repository revisits surviving evidence from my work at **Kashe Music Group / Santeri**. It has two connected purposes: to analyse the historical campaigns using the stronger analytical discipline I developed later, and to provide a transparent evidence trail for paid-media and creative-campaign statements in my CV and cover letter.
+## Start here
 
-The only surviving public artist account is the [Santeri Facebook page](https://www.facebook.com/therealsanteri).
+- **[Portfolio brief](PORTFOLIO_BRIEF.md)** - the two-minute account of what I did, what the surviving data shows, and how I would design the next creative test.
+- **[Exploratory report](reports/exploratory_findings.md)** - the fuller analysis, literature and historical context.
+- **[Methodology](METHODOLOGY.md)** - evidence categories, preparation decisions and analytical rules.
+- **[Technical audit](TECHNICAL_AUDIT.md)** - code, testing, provenance and reproducibility assessment.
 
-## Executive summary
+## Thirty-second view
 
-The campaign cannot be understood from Meta metrics alone. Creative production consumes and coordinates several forms of resource before an advertisement is delivered. Throsby (2006) distinguishes inputs such as labour, operating capital and human capital in artistic production, while Gander (2015) shows how music production depends on temporarily assembled specialist teams, material resources, knowledge and organisational coordination ([Throsby, 2006](https://doi.org/10.1007/s10824-005-9001-4); [Gander, 2015](https://doi.org/10.1108/MD-03-2014-0165)). I use those concepts to organise this case into **creative/intellectual assets, specialist human capital, technical/operating capital, financial capital, organisational capability, network resources, media channels and information resources**.
+### What I did then
 
-Chronology matters. Before *Let's Fly Away*, I was in a **manager-led artist-development phase**. Four opening-act appearances involving Portable occurred then, two at shows he organised and two at third-party shows where he was also booked. I was not directing creative operations for those events. They are baseline evidence of an existing artist trajectory and network access, not outcomes of the later social-media strategy.
+At Kashe Music Group I coordinated creative production and release activity, worked with distributed contributors and creators, managed parts of paid and organic promotion, and used campaign response to guide practical decisions. During the paid-growth phase, I grew the Facebook page audience from launch to around 5,000 in just over a month before it plateaued. I also used click-to-WhatsApp campaigns to build a direct audience contact list for closer engagement, and the Bunda music video reached 230,000+ YouTube views during its active release period. These three outcomes are part of my historical account; the surviving Meta export partly corroborates the Facebook and messaging activity but does not independently record the full Facebook timeline, YouTube total or later use of contacts.
 
-*Let's Fly Away* marked my transition to broad creative ownership. *Bunda* represented a further increase in **production intensity and resource commitment**. The music video cost more than **NGN 5 million** according to my historical records/recollection and involved more than **30 people**, including specialist roles such as producer, director and costume/styling alongside scripted creative development. I treat those facts as evidence of production inputs and specialisation rather than as an objective measure of artistic quality.
+The work pre-dated my formal data training, and the historical tracking was not designed for a later creative-effectiveness study.
 
-The surviving Meta workbook documents **126 campaign rows**, **NGN 1,029,228.11 spend** and **10,332,896 impressions**. A separate account screenshot records **NGN 1,492,844.45 spent**, so the workbook is a partial historical export rather than a complete lifetime account record.
+### What I can verify now
 
-Across the **106 link-click rows**, the file records **635,240 link clicks** from **9,725,211 impressions** and **NGN 907,409.25 spend**, producing a portfolio-weighted **NGN 1.43 CPC**, **6.53% derived CTR** and **NGN 93.30 CPM**. Those pooled values hide a highly concentrated distribution: median campaign CPC is **NGN 19.81** and median derived CTR is **0.51%**. The two principal Bunda YouTube traffic rows and Pressure generated **94.32% of all link clicks** from **44.27% of link-campaign spend** and **28.00% of link-campaign impressions**.
+The surviving Meta export contains **126 campaign rows**, **NGN 1,029,228.11 spend** and **10,332,896 impressions**. Across 106 comparable link-click rows, it records **635,240 clicks**, a portfolio-weighted **NGN 1.43 CPC** and a derived **6.53% CTR**.
 
-Eighteen rows whose surviving campaign names explicitly contain `Bunda` provide a conservative lower bound for clearly identifiable Bunda Meta activity. They record **NGN 450,035.75 spend** and **3,085,893 impressions**. Fifteen are link-click rows with **568,819 clicks** and three are ThruPlay rows with **29,344 ThruPlays**. Because generic or truncated names may also relate to Bunda, this is a lower-bound subset rather than a complete Bunda advertising total.
+The unit of observation is an exported campaign row, not a unique ad creative. Link-click campaigns account for 106 of the 126 rows, so the quantitative findings are primarily a traffic-response retrospective; the smaller result-type groups are reported descriptively rather than treated as equally developed comparisons.
 
-At the time, I believed that the culmination of stronger content, paid distribution, organic engagement and offline promotion was creating visible **market traction**, and that this helped during outreach and negotiation for television, radio and live opportunities. Some opportunities were actively negotiated and others arrived inbound. I now treat that belief as an **untested managerial hypothesis**, not an established causal result. Pre-existing relationships, production value, song characteristics, paid reach, organic word of mouth, offline promotion, timing, algorithms and gatekeeper preferences are all plausible drivers that I did not isolate.
+Those pooled figures are not typical campaign performance. Two Bunda YouTube traffic rows and one Pressure row produced **94.32% of link clicks** from **44.27% of link-campaign spend** and **28.00% of link-campaign impressions**. Removing those rows increases weighted CPC from **NGN 1.43** to **NGN 14.02** and reduces derived CTR from **6.53%** to **0.52%**.
 
-The reproducible workflow does not change that evidential boundary. It makes the **data handling and descriptive calculations auditable**: the original workbook can be transformed into the sanitised public CSV, validated, analysed and visualised with one command, while the original private workbook remains uncommitted because it contains a historical phone number.
+### What the evidence does not show
+
+The export does not consistently preserve ad-level IDs, creative assets, hook, format, angle, creator, audience, placement or downstream sales and revenue. It can show **where recorded response differed**, but it cannot identify which creative feature caused the difference or establish total campaign return.
+
+### What I would do next
+
+I would define the decision and primary business outcome before launch, apply a stable creative taxonomy, preserve campaign/ad IDs and delivery settings, link platform response to downstream outcomes, and use controlled comparisons where causal attribution matters. The proposed design is set out in the **[portfolio brief](PORTFOLIO_BRIEF.md#proposed-next-campaign-design)**. It is a forward-looking method, not a claim that the historical campaign used that design.
+
+## Evidence and provenance
+
+The original workbook is not public because a campaign name contains a historical WhatsApp phone number. The pipeline verifies the restricted workbook hash, redacts that number and produces the committed public derivative. Every source row is retained. Four rows with blank result fields are flagged rather than imputed, and unlike result types are not combined into one performance total.
+
+The workbook is a partial export: a separate account screenshot records higher lifetime spend than the workbook. Production cost, team size, chronology and other historical outcomes that do not appear in the workbook are labelled as author-reported context in the full report and provenance record.
+
+See **[PROVENANCE.md](PROVENANCE.md)** and **[DATA_USE.md](DATA_USE.md)** for the evidence boundary.
 
 ## Reproducible workflow
 
-The first version of this repository reproduced the analysis from the public CSV, while the earlier Excel-to-CSV preparation was documented rather than coded. That gap is now closed.
+1. `scripts/xlsx_reader.py` reads the known historical XLSX structure.
+2. `scripts/prepare_data.py` performs targeted preparation, verification and redaction.
+3. `scripts/validate_data.py` checks schema, ranges, privacy and exported cost-per-result arithmetic.
+4. `scripts/analyse_campaigns.py` calculates the published KPIs, distributions, concentration and sensitivity results.
+5. `scripts/visualise_results.py` generates five canonical SVG figures.
+6. `scripts/build_manifest.py` records complete code/product hashes and runtime versions.
+7. `scripts/run_pipeline.py` runs the workflow in order.
 
-The pipeline is separated into explicit stages:
-
-1. `scripts/xlsx_reader.py` — reads the known historical XLSX export.
-2. `scripts/prepare_data.py` — performs **targeted data preparation**: verifies the workbook hash, locates the header, checks duplicated fields, verifies fields before dropping them, converts relevant values, redacts the historical WhatsApp number and flags four rows whose result fields are blank.
-3. `scripts/validate_data.py` — checks schema, numeric constraints, privacy redaction and cost-per-result arithmetic.
-4. `scripts/analyse_campaigns.py` — calculates the published KPIs, distributions, concentration/sensitivity analysis and the conservative Bunda-name subset.
-5. `scripts/visualise_results.py` — generates five deterministic SVG figures from the prepared data.
-6. `scripts/build_manifest.py` — records code/product hashes and runtime versions.
-7. `scripts/run_pipeline.py` — runs the complete workflow in order.
-
-This is **not presented as comprehensive data cleaning**. The source export was already broadly tabular. The preparation stage is deliberately conservative: preserve the historical records, verify what can be verified, flag uncertainty instead of guessing, and make the transformations reproducible.
-
-See **[PIPELINE.md](PIPELINE.md)** for the run instructions and **[TECHNICAL_AUDIT.md](TECHNICAL_AUDIT.md)** for the code/product assessment.
+The workflow is deliberately proportionate to one historical export. It is not presented as a production advertising platform or as comprehensive data cleaning.
 
 ## Repository guide
 
-- **[Full exploratory report](reports/exploratory_findings.md)** — resource model, chronology, historical hypothesis, Meta analysis and implications.
-- **[Methodology](METHODOLOGY.md)** — conceptual basis, evidence types, data preparation/validation and analytical rules.
-- **[Pipeline](PIPELINE.md)** — end-to-end reproducibility and commands.
-- **[Technical audit](TECHNICAL_AUDIT.md)** — assessment of the scripts and outputs against reproducible-computing and visualisation literature.
-- **[Sanitised campaign data](data/meta_campaign_export_sanitized.csv)** — generated public derivative of the restricted workbook.
-- **[Analysis summary](analysis/summary.json)** — machine-readable KPI outputs.
-- **[Validation report](analysis/validation_report.json)** — automated data checks.
-- **[Provenance](PROVENANCE.md)** — evidence chain, source handling and contextual evidence boundaries.
+- **[Sanitised campaign data](data/meta_campaign_export_sanitized.csv)** - generated public derivative of the restricted workbook.
+- **[Analysis summary](analysis/summary.json)** - machine-readable KPI outputs.
+- **[Validation report](analysis/validation_report.json)** - automated data checks.
+- **[Pipeline guide](PIPELINE.md)** - execution stages and commands.
+- **[Run manifest](analysis/run_manifest.json)** - runtime and SHA-256 provenance.
 
 ![Distribution of campaign cost per link click](assets/01_link_click_cost_distribution.svg)
 
@@ -65,28 +73,27 @@ See **[PIPELINE.md](PIPELINE.md)** for the run instructions and **[TECHNICAL_AUD
 
 ## Run the pipeline
 
-With the verified private workbook placed at `data/private/30-01-23.xlsx`:
+With the verified private workbook at `data/private/30-01-23.xlsx`:
 
 ```bash
 python -m scripts.run_pipeline
 ```
 
-To rebuild the public products without the private workbook:
+To rebuild public products without the private workbook:
 
 ```bash
 python -m scripts.run_pipeline --from-public-csv
 ```
 
-Tests:
+Tests and code-quality checks:
 
 ```bash
 python -m unittest discover -s tests -v
+ruff check scripts tests
 ```
 
 ## AI assistance and author responsibility
 
-The underlying historical advertising, music-release activity and source data relate to work I personally carried out. **ChatGPT did not participate in the original campaigns.**
+The advertising, release activity and source data relate to work I personally carried out; ChatGPT did not participate in the historical campaigns. I reviewed the source material, preparation decisions, calculations and interpretation.
 
-I reviewed the historical source material, the data preparation decisions, the calculations and the analytical interpretation. ChatGPT was used subsequently to assist with reproducible Python code, re-run/cross-check calculations, identify relevant literature and draft substantial portions of the repository prose. The numerical Meta claims have been checked against the source data; author-reported production and chronology context is labelled separately from workbook evidence; AI-generated prose is not treated as independent evidence.
-
-I retain responsibility for the final interpretation and for distinguishing source-recorded metrics, derived calculations, author-reported historical context and external research.
+ChatGPT was later used to assist with Python development, calculation checks, literature discovery and drafting. Its output was not treated as evidence. Source-recorded metrics, derived calculations, author-reported context and external research are distinguished throughout, and I retain responsibility for the published analysis.

@@ -9,36 +9,42 @@
     "reason_restricted": "The original export contains a historical WhatsApp phone number; the public CSV is a redacted derivative."
   },
   "runtime": {
-    "python_major_minor": "3.13",
+    "python_major_minor": "3.14",
     "matplotlib": "3.10.8"
   },
   "code_sha256": {
+    ".github/workflows/quality.yml": "24f9e17921c70c948aa6550a0f3f2ee45a85e7a7020a9511725fff7b5992117d",
+    "scripts/__init__.py": "a8c3156483b06352d6ed9138472e2b0502f408dda711da4cc2f99ed1b2dbeb80",
     "scripts/xlsx_reader.py": "5145b420425141e30e8d97a3df759d065e4b728c6fa763f3b3171e6f56578db5",
     "scripts/campaign_data.py": "3b6525a9c16cce48a6cc9191c5a84e79c4134ed216cdd3d75aa4a2d64e672667",
-    "scripts/prepare_data.py": "75428ddae1c60da24d240faf9449084fedcfacdcf38d17b24208d287a35769ec",
-    "scripts/canonicalize_public_csv.py": "2574b04c754401f652a674f39ee915dba0ae761ea87eb8716a64b0ff4de17db3",
-    "scripts/validate_data.py": "c066974f4f04c660e553197a80b07d1aac7649527703d5eab7a757382fa2a120",
-    "scripts/analyse_campaigns.py": "50452b9de7da62c44fc461a497198ded5c91bd21f7fcec6d811ae44e3ed9a2e2",
-    "scripts/visualise_results.py": "5dc8bca00cb92a13315a41fbb3eabd716f3dee5b17c4b45ca6da745fbd56cf46",
-    "scripts/build_manifest.py": "175c8810a516d946b8c1473288544525a5a566a7cd1fcd876c6d9bbe5208b516",
+    "scripts/prepare_data.py": "07806a9c785ebe6b92fc79ab9c9a2d4e6f048b718a47689cedaec7c174ed356a",
+    "scripts/canonicalize_public_csv.py": "920fe245e9676ca1dbc7df0bcfe7f418726518d3d6e005fe06505178efc50096",
+    "scripts/validate_data.py": "1c258491c062aada1dbe28904c955e2a68e9aeaa47eb8c71aabb3e16f329b470",
+    "scripts/analyse_campaigns.py": "5eaa4d87883b0e5fa7bc709a519e2c84fe8f3c6032724055850bb7429506d83c",
+    "scripts/visualise_results.py": "dd7693124d81e317ff052712a3fc974b4a70d8986417c7007e52591f78d763ad",
+    "scripts/build_manifest.py": "c043ef570a1b366f7b4bc88d360cc9481b7101ac333689c7fdffbe47b85c21fd",
     "scripts/run_pipeline.py": "814f3570c753eff71e7a9d8e8fc2c7a7eeae30507d7d5f1f176efc0493329a92",
-    "tests/test_pipeline.py": "1ca706f55ef8281d76dccc0b765a729ec9b42cb89b0999de3c0866db6ef509ab",
+    "scripts/io_utils.py": "1fd835b83cf834ab90fcd56ac2cdb5e00555e3175e0bc918bbbecd4381cec686",
+    "tests/test_pipeline.py": "152d0cb18f12192bd3cc7f5d1e3b30f71a1551bf0dc5e7e03253013318b3d24f",
     "requirements.txt": "12a0a7bc6e1b1254c2f593a250e6ccff4dbd3cf0b27d6819696a9db86f4e530d",
     "requirements-dev.txt": "fe660099e1bd0cf92eed7dc210df7950df3dc888e16aea6519cf2d033622f825",
     "pyproject.toml": "9b0c9367799279e41e32c468cd9d805480a814a89d0f5687c81daa1cd3d72ea6"
   },
+  "evidence_sha256": {
+    "evidence/meta_account_spend_screenshot.png": "9917c389153119b95e30c44c15bcb84482269567db4993995b363fa64def3d7c"
+  },
   "product_sha256": {
     "data/meta_campaign_export_sanitized.csv": "a58b461bd6dca81c5d652dcbaf6bed725db639a549ef56f2f3a72dabec936e31",
-    "analysis/data_preparation_summary.json": "8e685886518d652eec29e8ce2a0915579049943a0d498b4db919f0e0588b12e0",
-    "analysis/validation_report.json": "205492407d75b5b51286d88d72eab233e4d92ea353ea569b634edeb1b9ce722c",
-    "analysis/summary.json": "8bcbbae99086150906b0e5514a01f59ab08e107cb4a31ff97ba1d0bf6652243f",
+    "analysis/data_preparation_summary.json": "918e15f08c87eb61df57853c333c1c5d0a2b3645c9bdc9cd9f85f1de59cb296e",
+    "analysis/validation_report.json": "ad82359b9d28c367afc640b721ba287b0425da8d2bbd4de6dede5a606f6a80b3",
+    "analysis/summary.json": "0e07f66c09dec7b7e2407088398c546fbebc1c8a9b8760601d4c88dcc7de8480",
     "analysis/result_type_summary.csv": "c96add543854cdfc904a98ed1e038b3862b022a16505f27fb435e335372d105f",
     "analysis/top_link_click_rows.csv": "a6c6b28d87bcd003eae25c2104434a79922acb672c6154438a0a14863527d2c9",
     "analysis/bunda_named_rows_lower_bound.csv": "f4b81ec3d01bc8754ab4bce5258f6bdca2458f4dd56a13ebf0eb69d717608e92",
-    "assets/01_link_click_cost_distribution.svg": "39423692436dadeac3857f9d0cd415e83952196cbf764849b430723690a5a5c6",
-    "assets/02_spend_vs_link_clicks.svg": "3f042fa9cad1e39f97be171236a1627b3c7ce5b864d34bb08453f3bff8d91fc9",
-    "assets/03_top_link_click_campaigns.svg": "01c5025ef9c1d65aebac4d8a8c084e290878d82c6fc902f7b02434577d12dc81",
-    "assets/04_cpc_sensitivity.svg": "a87fa2fd1c2c18b8c16f5e4afa905a7b9ea983f8488607de1ddb4894d31839e4",
-    "assets/05_ctr_sensitivity.svg": "fbceffd131a863c3c95134b2ac2531e0763388449bd1beabef216628fb936f69"
+    "assets/01_link_click_cost_distribution.svg": "ac531bce36e8b69142f7fdf7db10cbe92aaad0a9b2259aad9a2b99d2eecef1cc",
+    "assets/02_spend_vs_link_clicks.svg": "420e1bd381ee7a7261b27dfcbbd570b718321416c4bd71f38406a0da4ef07b15",
+    "assets/03_top_link_click_campaigns.svg": "6d1b5c452b101579d378655799cb2b22cdc53f970318ac47c641723546af4e71",
+    "assets/04_cpc_sensitivity.svg": "7637a8c86d54529a68d6ef4044c9fdbea0d6c28253014802ec71df145edeedfa",
+    "assets/05_ctr_sensitivity.svg": "46b6a610891da735a0701555c4aeab0d8e0d487fb3be412ae977a50e6301350c"
   }
 }

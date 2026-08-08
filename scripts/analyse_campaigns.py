@@ -16,12 +16,22 @@ from .campaign_data import (
     row_link_kpis,
     summarize,
 )
+from .io_utils import write_text_lf
 
 
 def with_link_kpis(summary: dict[str, object]) -> dict[str, object]:
     summary = dict(summary)
     summary["weighted_cpc_ngn"] = summary["weighted_cost_per_result_ngn"]
     summary["derived_link_ctr_pct"] = summary["derived_result_rate_pct"]
+    return summary
+
+
+def without_pooled_results(summary: dict[str, object]) -> dict[str, object]:
+    """Retain delivery totals while suppressing results pooled across unlike types."""
+    summary = dict(summary)
+    summary["results"] = None
+    summary["weighted_cost_per_result_ngn"] = None
+    summary["derived_result_rate_pct"] = None
     return summary
 
 
@@ -109,11 +119,9 @@ def analyse(rows: list[dict[str, object]]) -> dict[str, object]:
     recognized = recognized_rows(rows)
     flagged = [row for row in rows if row["data_quality_flag"]]
 
-    overall = summarize(rows)
     # Results from unlike objectives have no sensible pooled interpretation.
-    overall["results"] = None
-    overall["weighted_cost_per_result_ngn"] = None
-    overall["derived_result_rate_pct"] = None
+    overall = without_pooled_results(summarize(rows))
+    flagged_delivery = without_pooled_results(summarize(flagged))
 
     by_type = result_type_summary(recognized)
     link = link_click_rows(rows)
@@ -194,7 +202,7 @@ def analyse(rows: list[dict[str, object]]) -> dict[str, object]:
     bunda_named = [
         row for row in recognized if "bunda" in str(row["campaign_name"]).lower()
     ]
-    bunda_named_summary = summarize(bunda_named)
+    bunda_named_summary = without_pooled_results(summarize(bunda_named))
     bunda_named_link = [row for row in bunda_named if row["result_type"] == "Link clicks"]
     bunda_named_link_summary = with_link_kpis(summarize(bunda_named_link))
     bunda_named_thruplay = [row for row in bunda_named if row["result_type"] == "ThruPlay"]
@@ -213,6 +221,7 @@ def analyse(rows: list[dict[str, object]]) -> dict[str, object]:
             ),
             "distinct_campaign_name_strings": len({row["campaign_name"] for row in rows}),
             "overall": overall,
+            "flagged_rows_delivery": flagged_delivery,
         },
         "by_result_type": by_type,
         "link_click_analysis": link_summary,
@@ -259,8 +268,7 @@ def main() -> None:
 
     rows = load_rows(args.input)
     output = analyse(rows)
-    args.summary.parent.mkdir(parents=True, exist_ok=True)
-    args.summary.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
+    write_text_lf(args.summary, json.dumps(output, indent=2, ensure_ascii=False))
 
     recognized = recognized_rows(rows)
     by_type = result_type_summary(recognized)

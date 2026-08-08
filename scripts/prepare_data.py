@@ -18,6 +18,7 @@ from typing import Sequence
 import unicodedata
 
 from .xlsx_reader import read_worksheet
+from .io_utils import write_text_lf
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
@@ -328,8 +329,7 @@ def main() -> None:
             "output_csv_sha256": file_sha256(args.output),
         }
     )
-    args.summary.parent.mkdir(parents=True, exist_ok=True)
-    args.summary.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    write_text_lf(args.summary, json.dumps(summary, indent=2))
 
     print(
         f"Prepared {len(rows)} campaign rows -> {args.output} "
