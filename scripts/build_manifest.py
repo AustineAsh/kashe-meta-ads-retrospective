@@ -6,11 +6,16 @@ from hashlib import sha256
 import importlib.metadata
 import json
 from pathlib import Path
+import struct
 import sys
+import zlib
 
 from .campaign_data import PROJECT_ROOT
+from .io_utils import write_text_lf
 
 SCRIPT_PATHS = [
+    ".github/workflows/quality.yml",
+    "scripts/__init__.py",
     "scripts/xlsx_reader.py",
     "scripts/campaign_data.py",
     "scripts/prepare_data.py",
@@ -20,6 +25,7 @@ SCRIPT_PATHS = [
     "scripts/visualise_results.py",
     "scripts/build_manifest.py",
     "scripts/run_pipeline.py",
+    "scripts/io_utils.py",
     "tests/test_pipeline.py",
     "requirements.txt",
     "requirements-dev.txt",
@@ -41,6 +47,10 @@ PRODUCT_PATHS = [
     "assets/05_ctr_sensitivity.svg",
 ]
 
+EVIDENCE_PATHS = [
+    "evidence/meta_account_spend_screenshot.png",
+]
+
 
 def file_sha256(path: Path) -> str:
     digest = sha256()
@@ -51,16 +61,52 @@ def file_sha256(path: Path) -> str:
 
 
 def hashes(paths: list[str]) -> dict[str, str]:
-    return {
-        relative: file_sha256(PROJECT_ROOT / relative)
-        for relative in paths
-        if (PROJECT_ROOT / relative).exists()
-    }
+    missing = [relative for relative in paths if not (PROJECT_ROOT / relative).is_file()]
+    if missing:
+        raise FileNotFoundError(
+            "Cannot build a complete manifest; expected files are missing: "
+            + ", ".join(missing)
+        )
+    return {relative: file_sha256(PROJECT_ROOT / relative) for relative in paths}
+
+
+def validate_png_structure(path: Path) -> None:
+    """Reject truncated or structurally corrupt PNG evidence before hashing it."""
+    content = path.read_bytes()
+    if not content.startswith(b"\x89PNG\r\n\x1a\n"):
+        raise ValueError(f"Evidence file is not a PNG: {path}")
+
+    position = 8
+    chunk_types: list[bytes] = []
+    while position < len(content):
+        if position + 12 > len(content):
+            raise ValueError(f"Truncated PNG chunk header: {path}")
+        length = struct.unpack(">I", content[position : position + 4])[0]
+        chunk_end = position + 12 + length
+        if chunk_end > len(content):
+            raise ValueError(f"Truncated PNG chunk data: {path}")
+
+        chunk_type = content[position + 4 : position + 8]
+        chunk_data = content[position + 8 : position + 8 + length]
+        stored_crc = struct.unpack(">I", content[position + 8 + length : chunk_end])[0]
+        calculated_crc = zlib.crc32(chunk_type + chunk_data) & 0xFFFFFFFF
+        if stored_crc != calculated_crc:
+            raise ValueError(f"PNG chunk checksum failed: {path}")
+
+        chunk_types.append(chunk_type)
+        position = chunk_end
+
+    if position != len(content) or not chunk_types or chunk_types[0] != b"IHDR":
+        raise ValueError(f"Invalid PNG chunk structure: {path}")
+    if chunk_types[-1] != b"IEND":
+        raise ValueError(f"PNG has no terminal IEND chunk: {path}")
 
 
 def build_manifest() -> dict[str, object]:
     preparation_path = PROJECT_ROOT / "analysis" / "data_preparation_summary.json"
     preparation = json.loads(preparation_path.read_text(encoding="utf-8"))
+    for relative in EVIDENCE_PATHS:
+        validate_png_structure(PROJECT_ROOT / relative)
     return {
         "purpose": "Provenance manifest for the reproducible portfolio analysis pipeline.",
         "run_command_private_source": "python -m scripts.run_pipeline",
@@ -79,6 +125,7 @@ def build_manifest() -> dict[str, object]:
             "matplotlib": importlib.metadata.version("matplotlib"),
         },
         "code_sha256": hashes(SCRIPT_PATHS),
+        "evidence_sha256": hashes(EVIDENCE_PATHS),
         "product_sha256": hashes(PRODUCT_PATHS),
     }
 
@@ -92,8 +139,7 @@ def main() -> None:
     )
     args = parser.parse_args()
     manifest = build_manifest()
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    write_text_lf(args.output, json.dumps(manifest, indent=2))
     print(f"Wrote reproducibility manifest -> {args.output}")
 
 

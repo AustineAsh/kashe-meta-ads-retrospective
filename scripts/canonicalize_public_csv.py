@@ -14,6 +14,7 @@ from pathlib import Path
 import unicodedata
 
 from .campaign_data import PROJECT_ROOT, PUBLIC_CSV
+from .io_utils import write_text_lf
 from .prepare_data import OUTPUT_FIELDS
 
 NUMERIC_FIELDS = {
@@ -74,7 +75,7 @@ def canonicalize(path: Path = PUBLIC_CSV) -> None:
     if preparation_summary.exists():
         summary = json.loads(preparation_summary.read_text(encoding="utf-8"))
         summary["output_csv_sha256"] = sha256(path.read_bytes()).hexdigest()
-        preparation_summary.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        write_text_lf(preparation_summary, json.dumps(summary, indent=2))
 
 
 def main() -> None:

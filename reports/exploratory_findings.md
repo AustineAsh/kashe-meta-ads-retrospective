@@ -4,19 +4,21 @@
 
 This report revisits surviving evidence from my work at Kashe Music Group / Santeri. The Meta Ads export is an important quantitative record, but it represents only one part of the campaign. I therefore analyse the later releases as a **resource-to-response system** rather than beginning with advertising metrics alone.
 
-Throsby (2006) distinguishes labour, operating capital and human capital as inputs to artistic production, while Gander (2015) describes music production as a coordinated process involving specialist people, material resources, knowledge and temporary project relationships ([Throsby, 2006](https://doi.org/10.1007/s10824-005-9001-4); [Gander, 2015](https://doi.org/10.1108/MD-03-2014-0165)). Drawing on those concepts and the historical case, I distinguish creative/intellectual assets, specialist labour, technical/operating capital, financial capital, organisational capability, network resources, media channels and information resources.
+Throsby (2006) distinguishes labour, operating capital and human capital as inputs to artistic production, while Gander's (2015) recording-studio study shows how spatial and material arrangements help regulate tasks, roles, review and decision-making in temporary teams under uncertainty ([Throsby, 2006](https://doi.org/10.1007/s10824-005-9001-4); [Gander, 2015](https://doi.org/10.1108/MD-03-2014-0165)). Drawing on those concepts and the historical case, I distinguish creative/intellectual assets, specialist labour, technical/operating capital, financial capital, organisational capability, network resources, media channels and information resources.
 
 Chronology matters. The four opening-act appearances involving Portable occurred in the earlier manager-led artist phase, before *Let's Fly Away* and before I took broad ownership of creative operations. They therefore establish pre-existing live experience and network access rather than outcomes of my later creative strategy.
 
-*Let's Fly Away* marked the transition to broader creative ownership. Bunda represented a further increase in production intensity. The music video cost more than **NGN 5 million** according to my historical records/recollection and involved more than **30 people**, including specialist roles such as producer, director and costume/styling alongside scripted creative development. These facts describe production inputs and specialisation rather than independently proving artistic quality.
+*Let's Fly Away* marked the transition to broader creative ownership. Bunda represented a further increase in production intensity. The music video cost more than **NGN 5 million** according to my historical records/recollection and involved more than **30 people**, including specialist roles such as producer, director and costume/styling alongside scripted creative development. The video reached **230,000+ YouTube views** during its active release period according to my historical account. These facts describe production inputs and observed platform response rather than independently proving artistic quality or identifying what caused the response.
 
 The surviving Meta workbook contains **126 campaign rows**, **NGN 1,029,228.11 spend** and **10,332,896 impressions**. Across **106 link-click rows**, it records **635,240 link clicks** from **NGN 907,409.25 spend**, giving a portfolio-weighted **NGN 1.43 CPC**, **6.53% derived CTR** and **NGN 93.30 CPM**. The distribution is much less uniform than those pooled values suggest: median campaign CPC is **NGN 19.81** and median derived CTR is **0.51%**. The two principal Bunda YouTube traffic rows and Pressure account for **94.32% of all link clicks** from **44.27% of link-campaign spend** and **28.00% of link-campaign impressions**.
+
+This is primarily a traffic-response dataset: 106 of 126 rows report link clicks, while every other recognised result type appears in only one to six rows. The unit is an exported campaign row rather than a unique creative asset, and the missing ad-level identifiers and creative metadata prevent creative-feature attribution.
 
 Eighteen recognised rows whose surviving names explicitly contain `Bunda` provide a conservative lower-bound reconstruction. They record **NGN 450,035.75 spend**, **3,085,893 impressions**, **568,819 link clicks** across 15 link-click rows and **29,344 ThruPlays** across three video-view rows. Because some names are generic or truncated, I do not treat this as the complete Bunda Meta budget.
 
 At the time, I believed that stronger content, paid distribution, organic engagement and offline promotion were combining into visible **market traction**, and that this visibility helped when I approached or negotiated with television, radio and event decision-makers. Some opportunities were actively negotiated and others arrived inbound. I did not test that belief. I now treat it as an **untested managerial hypothesis** with multiple plausible drivers and barriers rather than as a causal result.
 
-The main development demonstrated by the retrospective is therefore not that I can reproduce an old dashboard. I now separate resources from outcomes, pooled portfolio efficiency from typical campaign performance, paid-media response from total campaign return, and historical managerial interpretation from claims that would require controlled evidence.
+The retrospective demonstrates a more disciplined way of using the surviving evidence. I separate resources from outcomes, pooled portfolio efficiency from typical campaign performance, paid-media response from total campaign return, and historical managerial interpretation from claims that would require controlled evidence.
 
 ## 1. Campaign resources and media architecture
 
@@ -43,13 +45,13 @@ My working assumption at the time can now be expressed as:
 
 `resource configuration → campaign execution → exposure/engagement → visible traction → perceived market signal → gatekeeper interest/negotiation leverage → media/live opportunities`
 
-That chain was not tested. Existing relationships, prior live history, song characteristics, production intensity, paid reach, organic word of mouth, direct outreach, offline promotion, algorithms, timing and gatekeeper preferences could all have contributed. Polak and Schaap (2024) provide useful context for this uncertainty: professional musicians often undertake substantial platform and entrepreneurial work while still finding the mechanisms that drive discoverability difficult to interpret ([Polak & Schaap, 2024](https://doi.org/10.1177/14614448241243095)).
-
-Okolie and Onwuegbuna's (2024) descriptive study of 16 Port Harcourt radio stations makes one part of the historical assumption plausible without proving my case. Social-media responses, direct artist contact and artists' online platforms formed part of the popularity/programming environment reported by the stations studied. I infer only that online response could plausibly enter some Nigerian gatekeepers' information environment, not that it caused my own opportunities ([Okolie & Onwuegbuna, 2024](https://www.researchgate.net/publication/380345560_Evolving_Trends_in_Radio_Popularization_of_Nigerian_Urban_Music)).
+That chain was not tested. Existing relationships, prior live history, song characteristics, production intensity, paid reach, organic word of mouth, direct outreach, offline promotion, algorithms, timing and gatekeeper preferences could all have contributed. Polak and Schaap's interviews with 20 formally trained Dutch early- to mid-career musicians provide limited context for this uncertainty: most participants knew about platform-optimisation practices, but only a handful reported using them explicitly. The sample omitted several major genres, including rap/hip-hop, so I use the study only to show that platform awareness does not translate into one uniform production response ([Polak & Schaap, 2025](https://doi.org/10.1177/14614448241243095)).
 
 ## 3. Data preparation and verification
 
 The quantitative source is the `Raw Data Report` sheet of `30-01-23.xlsx`. The preparation is deliberately **targeted rather than comprehensive data cleaning** because the historical export was already broadly tabular.
+
+Each record remains a campaign row from that export. Seventeen campaign-name strings recur, but stable campaign/ad IDs are absent, so repeated names cannot safely be classified as duplicate records and are preserved.
 
 The reproducible preparation stage verifies the workbook hash, locates the header, checks the duplicated campaign-name columns, verifies fields before omitting them, preserves all 126 rows, converts the relevant analysis values and redacts the historical WhatsApp phone number from one campaign name. Repeated campaign names are retained because the file does not preserve the stable campaign/ad IDs needed to decide whether they are duplicates.
 
@@ -88,7 +90,9 @@ These calculations identify where unusually strong response occurred. They do no
 
 ## 6. Other objectives and direct audience development
 
-Two `Promoting Santeri` rows record **3,977 attributed Facebook likes** from **NGN 73,259.03 spend**, or **NGN 18.42 per attributed like**. Two messaging rows record **86 conversations started** from **NGN 10,769.04 spend**; the larger click-to-WhatsApp campaign produced **78 conversations from NGN 8,460.63**. I personally engaged incoming contacts and retained contacts for later promotion, so this part of the campaign moved beyond visibility into a reusable direct-audience resource.
+Two `Promoting Santeri` rows record **3,977 attributed Facebook likes** from **NGN 73,259.03 spend**, or **NGN 18.42 per attributed like**. In my historical account, the Facebook page audience grew from launch to around **5,000 in just over a month** while the paid-growth campaigns were active, before plateauing. The attributed likes partly corroborate that activity but do not independently establish the full page total or exact interval.
+
+Two messaging rows record **86 conversations started** from **NGN 10,769.04 spend**; the larger click-to-WhatsApp campaign produced **78 conversations from NGN 8,460.63**. I personally engaged incoming contacts and retained contacts for later promotion, using the feature as a direct audience contact list for closer communication rather than treating the conversations as one-off responses. The workbook records the conversations, while the retention and later use of contacts form part of my historical operating account.
 
 Six rows record **58,112 ThruPlays** from **NGN 20,596.01 spend**, while one separate row records **3,233 three-second video plays**. Because those measures are not recorded for the same campaign rows, I do not manufacture a historical retention/hold rate by dividing one group by the other.
 
@@ -118,12 +122,8 @@ The later media/live opportunities belong to the historical trajectory, but my o
 
 Gander, J.M. (2015) 'Situating creative production: recording studios and the making of a pop song', *Management Decision*, 53(4), pp. 843–856. https://doi.org/10.1108/MD-03-2014-0165
 
-Li, F., Larimo, J. and Leonidou, L.C. (2021) 'Social media marketing strategy: definition, conceptualization, taxonomy, validation, and future agenda', *Journal of the Academy of Marketing Science*, 49, pp. 51–70. https://doi.org/10.1007/s11747-020-00733-3
-
 Lovett, M.J. and Staelin, R. (2016) 'The role of paid, earned, and owned media in building entertainment brands: reminding, informing, and enhancing enjoyment', *Marketing Science*, 35(1), pp. 142–157. https://doi.org/10.1287/mksc.2015.0961
 
-Okolie, G.C. and Onwuegbuna, I.E. (2024) 'Evolving Trends in Radio Popularization of Nigerian Urban Music', *Nsukka Journal of the Humanities*. https://www.researchgate.net/publication/380345560_Evolving_Trends_in_Radio_Popularization_of_Nigerian_Urban_Music
-
-Polak, R. and Schaap, J. (2024) 'Platformisation of music careers', *New Media & Society*. https://doi.org/10.1177/14614448241243095
+Polak, N. and Schaap, J. (2025) 'Write, record, optimize? How musicians reflect on music optimization strategies in the creative production process', *New Media & Society*, 27(8), pp. 4773–4789. First published online in 2024. https://doi.org/10.1177/14614448241243095
 
 Throsby, D. (2006) 'An artistic production function: theory and an application to Australian visual artists', *Journal of Cultural Economics*, 30, pp. 1–14. https://doi.org/10.1007/s10824-005-9001-4

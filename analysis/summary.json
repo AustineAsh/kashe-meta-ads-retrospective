@@ -16,6 +16,17 @@
       "derived_result_rate_pct": null,
       "derived_cpm_ngn": 99.60693594516,
       "impressions_per_summed_reach": 1.1971990844051807
+    },
+    "flagged_rows_delivery": {
+      "rows": 4,
+      "spend_ngn": 126.39,
+      "impressions": 462,
+      "sum_campaign_reach_not_unique": 460,
+      "results": null,
+      "weighted_cost_per_result_ngn": null,
+      "derived_result_rate_pct": null,
+      "derived_cpm_ngn": 273.57142857142856,
+      "impressions_per_summed_reach": 1.0043478260869565
     }
   },
   "by_result_type": {
@@ -184,9 +195,9 @@
       "spend_ngn": 450035.75,
       "impressions": 3085893,
       "sum_campaign_reach_not_unique": 2062597,
-      "results": 598163.0,
-      "weighted_cost_per_result_ngn": 0.752363068260658,
-      "derived_result_rate_pct": 19.38378939256805,
+      "results": null,
+      "weighted_cost_per_result_ngn": null,
+      "derived_result_rate_pct": null,
       "derived_cpm_ngn": 145.83647261910895,
       "impressions_per_summed_reach": 1.4961201824689943
     },

@@ -64,6 +64,9 @@ Some contextual information in the report is not contained in the Meta workbook.
 - the **30+ person production team/set** and specialist production roles;
 - the chronology between the manager-led phase, *Let's Fly Away* and Bunda;
 - the four Portable opening appearances occurring in the earlier manager-led phase;
+- the Facebook page audience growing from launch to around **5,000 in just over a month** during the paid-growth phase before plateauing; the workbook's **3,977 attributed Facebook likes** partly corroborate this activity but do not establish the complete page total or exact interval;
+- the use of click-to-WhatsApp activity to retain a **direct audience contact list** for closer engagement; the workbook records **86 messaging conversations started**, but not the later retention and use of those contacts;
+- the Bunda music video reaching **230,000+ YouTube views** during its active release period;
 - X Ads, Google Ads and traditional/offline promotion not quantified by this Meta export; and
 - my historical belief that cumulative traction supported media/live outreach and negotiation, which the report now treats as an **untested managerial hypothesis**.
 

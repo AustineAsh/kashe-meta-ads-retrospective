@@ -9,6 +9,7 @@ from pathlib import Path
 import re
 
 from .campaign_data import KNOWN_RESULT_TYPES, NUMERIC_FIELDS, PROJECT_ROOT, PUBLIC_CSV
+from .io_utils import write_text_lf
 
 PHONE_RE = re.compile(r"(?i)(?:phone=|wa\.me/)\+?\d{7,15}")
 EXPECTED_SEMANTIC_FINGERPRINT = (
@@ -207,8 +208,7 @@ def main() -> None:
     args = parser.parse_args()
 
     report = validate(args.input)
-    args.report.parent.mkdir(parents=True, exist_ok=True)
-    args.report.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    write_text_lf(args.report, json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))
     if report["status"] != "pass":
         raise SystemExit(1)

@@ -13,6 +13,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
 from .campaign_data import PROJECT_ROOT, PUBLIC_CSV, link_click_rows, load_rows
+from .io_utils import canonicalise_text_file
 
 matplotlib.rcParams["svg.hashsalt"] = "kashe-meta-ads-retrospective"
 matplotlib.rcParams["svg.fonttype"] = "none"
@@ -30,6 +31,7 @@ def save_svg(fig: matplotlib.figure.Figure, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(path, format="svg", bbox_inches="tight", metadata={"Date": None})
     plt.close(fig)
+    canonicalise_text_file(path)
 
 
 def cpc_distribution(link_rows_: list[dict[str, object]], output: Path) -> None:
@@ -95,6 +97,7 @@ def top_link_rows(link_rows_: list[dict[str, object]], output: Path) -> None:
     ax.invert_yaxis()
     ax.set_xlabel("Recorded link clicks")
     ax.set_title("Top 10 campaign rows by recorded link clicks")
+    ax.margins(x=0.08)
     ax.bar_label(bars, fmt="{:,.0f}", padding=3, fontsize=8)
     save_svg(fig, output)
 
@@ -123,7 +126,7 @@ def sensitivity_charts(summary: dict[str, object], output_dir: Path) -> None:
     fig, ax = plt.subplots(figsize=(8, 5))
     bars = ax.bar(labels, ctr)
     ax.set_ylabel("Derived link CTR (%)")
-    ax.set_title("Sensitivity of pooled link CTR to the largest response outliers")
+    ax.set_title("Sensitivity of aggregate link CTR to the largest response outliers")
     ax.tick_params(axis="x", labelrotation=15)
     ax.bar_label(bars, fmt="%.2f%%", padding=3)
     save_svg(fig, output_dir / "05_ctr_sensitivity.svg")
