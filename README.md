@@ -4,6 +4,7 @@ A reproducible portfolio case study connecting my earlier music-campaign work wi
 
 ## Start here
 
+- **[CEO dashboard](dashboard.py)** - a one-screen decision brief that leads with the concentration finding, sensitivity and next action.
 - **[Portfolio brief](PORTFOLIO_BRIEF.md)** - the two-minute account of what I did, what the surviving data shows, and how I would design the next creative test.
 - **[Exploratory report](reports/exploratory_findings.md)** - the fuller analysis, literature and historical context.
 - **[Methodology](METHODOLOGY.md)** - evidence categories, preparation decisions and analytical rules.
@@ -84,6 +85,15 @@ To rebuild public products without the private workbook:
 ```bash
 python -m scripts.run_pipeline --from-public-csv
 ```
+
+Launch the executive dashboard:
+
+```bash
+streamlit run dashboard.py
+```
+
+The dashboard design and source decisions are recorded in
+**[CEO dashboard research](docs/CEO_DASHBOARD_RESEARCH.md)**.
 
 Tests and code-quality checks:
 
