@@ -2,9 +2,12 @@
 
 A reproducible portfolio case study connecting my earlier music-campaign work with the data, research and information-quality discipline developed through my later IT and MSc study.
 
+**[Open the live CEO dashboard](https://kashe-meta-ads-retrospective.streamlit.app/)**
+
 ## Start here
 
-- **[CEO dashboard](dashboard.py)** - a one-screen decision brief that leads with the concentration finding, sensitivity and next action.
+- **[Live CEO dashboard](https://kashe-meta-ads-retrospective.streamlit.app/)** - a one-screen decision brief that leads with the concentration finding, sensitivity and next action.
+- **[Dashboard source](dashboard.py)** - the Streamlit implementation behind the live decision brief.
 - **[Portfolio brief](PORTFOLIO_BRIEF.md)** - the two-minute account of what I did, what the surviving data shows, and how I would improve measurement in the next campaign.
 - **[Exploratory report](reports/exploratory_findings.md)** - the fuller analysis, literature and historical context.
 - **[Methodology](METHODOLOGY.md)** - evidence categories, preparation decisions and analytical rules.
