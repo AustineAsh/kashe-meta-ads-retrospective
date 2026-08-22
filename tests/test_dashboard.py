@@ -52,6 +52,14 @@ class TestDashboardModel(unittest.TestCase):
             [tab.label for tab in app.tabs],
             ["Decision brief", "Campaign detail", "Evidence boundary"],
         )
+        self.assertIn(
+            "Future campaign measurement plan",
+            [heading.value for heading in app.subheader],
+        )
+        action_markup = "\n".join(item.value for item in app.markdown)
+        self.assertIn("01 / PLAN", action_markup)
+        self.assertIn("02 / INSTRUMENT", action_markup)
+        self.assertIn("03 / RUN &amp; LEARN", action_markup)
         self.assertEqual(len(app.dataframe), 1)
 
 

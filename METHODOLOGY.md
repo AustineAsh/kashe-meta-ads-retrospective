@@ -119,6 +119,8 @@ Reproducibility makes the transformation and calculations inspectable; it does n
 
 Likewise, Meta CPC or CTR cannot be used as a return measure for the more than NGN 5 million author-reported Bunda video investment. A total resource-productivity or ROI analysis would require a fuller cost ledger linked to revenue, profit, attributable bookings or another defined strategic outcome.
 
+The implementation sequence, evidence fields, reporting checkpoints and privacy controls for prospective work are set out in [the future campaign measurement plan](docs/FUTURE_CAMPAIGN_MEASUREMENT_PLAN.md). The first campaign is designed to create a trustworthy measurement baseline; experimental complexity is added only when the decision, budget and available signal justify it.
+
 ## 12. Reproduction
 
 Full local pipeline with the verified workbook:
