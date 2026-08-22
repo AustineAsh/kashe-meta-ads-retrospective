@@ -5,9 +5,10 @@ A reproducible portfolio case study connecting my earlier music-campaign work wi
 ## Start here
 
 - **[CEO dashboard](dashboard.py)** - a one-screen decision brief that leads with the concentration finding, sensitivity and next action.
-- **[Portfolio brief](PORTFOLIO_BRIEF.md)** - the two-minute account of what I did, what the surviving data shows, and how I would design the next creative test.
+- **[Portfolio brief](PORTFOLIO_BRIEF.md)** - the two-minute account of what I did, what the surviving data shows, and how I would improve measurement in the next campaign.
 - **[Exploratory report](reports/exploratory_findings.md)** - the fuller analysis, literature and historical context.
 - **[Methodology](METHODOLOGY.md)** - evidence categories, preparation decisions and analytical rules.
+- **[Future campaign measurement plan](docs/FUTURE_CAMPAIGN_MEASUREMENT_PLAN.md)** - a practical prospective design for capturing the evidence missing from the retrospective.
 - **[Technical audit](TECHNICAL_AUDIT.md)** - code, testing, provenance and reproducibility assessment.
 
 ## Thirty-second view
@@ -32,7 +33,7 @@ The export does not consistently preserve ad-level IDs, creative assets, hook, f
 
 ### What I would do next
 
-I would define the decision and primary business outcome before launch, apply a stable creative taxonomy, preserve campaign/ad IDs and delivery settings, link platform response to downstream outcomes, and use controlled comparisons where causal attribution matters. The proposed design is set out in the **[portfolio brief](PORTFOLIO_BRIEF.md#proposed-next-campaign-design)**. It is a forward-looking method, not a claim that the historical campaign used that design.
+I would define the decision and primary outcome before launch, preserve the campaign, creative, delivery and cost context, instrument consent-aware downstream events, and export the evidence at fixed checkpoints. A controlled comparison would be added only when the campaign question, budget and data volume support it. The practical design is set out in the **[future campaign measurement plan](docs/FUTURE_CAMPAIGN_MEASUREMENT_PLAN.md)**. It is a forward-looking method, not a claim that the historical campaign used that design.
 
 ## Evidence and provenance
 

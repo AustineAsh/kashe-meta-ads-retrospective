@@ -256,7 +256,7 @@ st.markdown(
     <section class="hero">
       <div class="eyebrow">Historical Meta Ads decision brief</div>
       <h1>Three rows generated {headline['top_three_click_share_pct']:.1f}% of recorded link clicks.</h1>
-      <p>The pooled result looks unusually efficient, but it is not a safe baseline for a typical campaign. Use the leading rows to generate hypotheses, then test them against a commercial outcome.</p>
+      <p>The pooled result looks unusually efficient, but it is not a safe baseline for a typical campaign. Treat the leading rows as clues, then design the next campaign to preserve the evidence this export is missing.</p>
     </section>
     """,
     unsafe_allow_html=True,
@@ -300,25 +300,25 @@ with overview_tab:
         st.pyplot(sensitivity, width="stretch")
         plt.close(sensitivity)
 
-    st.subheader("Recommended next test")
+    st.subheader("Future campaign measurement plan")
     action_columns = st.columns(3, gap="small")
     with action_columns[0]:
         action_card(
-            "01 / RECOVER",
-            "Link response to creative",
-            "Recover the leading assets and preserve creative IDs, hooks, formats, audiences and delivery settings.",
+            "01 / PLAN",
+            "Define the decision",
+            "Choose one primary outcome, map the journey from exposure to value, and set the budget, observation window and decision rule before launch.",
         )
     with action_columns[1]:
         action_card(
-            "02 / DEFINE",
-            "Choose the business outcome",
-            "Set one primary commercial KPI and validate the path from platform response to that outcome before launch.",
+            "02 / INSTRUMENT",
+            "Capture the missing evidence",
+            "Preserve stable IDs, creative and delivery labels, tagged links, costs and consented downstream events; test the tracking before spend begins.",
         )
     with action_columns[2]:
         action_card(
-            "03 / TEST",
-            "Run a controlled comparison",
-            "Change one focal factor, keep delivery conditions comparable, and pre-set the analysis window and decision rule.",
+            "03 / RUN & LEARN",
+            "Keep a complete record",
+            "Export at fixed checkpoints, log changes and compare platform response with later fan or commercial outcomes. Add a controlled test only when the design and budget support it.",
         )
 
     st.markdown(
