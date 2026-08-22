@@ -62,7 +62,7 @@ Some contextual information in the report is not contained in the Meta workbook.
 
 - the **Bunda music-video production cost of more than NGN 5 million**;
 - the **30+ person production team/set** and specialist production roles;
-- the chronology between the manager-led phase, *Let's Fly Away* and Bunda;
+- the sequence from the manager-led phase through *Let's Fly Away*, Bunda and then Pressure;
 - the four Portable opening appearances occurring in the earlier manager-led phase;
 - the Facebook page audience growing from launch to around **5,000 in just over a month** during the paid-growth phase before plateauing; the workbook's **3,977 attributed Facebook likes** partly corroborate this activity but do not establish the complete page total or exact interval;
 - the use of click-to-WhatsApp activity to retain a **direct audience contact list** for closer engagement; the workbook records **86 messaging conversations started**, but not the later retention and use of those contacts;

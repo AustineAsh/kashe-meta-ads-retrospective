@@ -20,7 +20,7 @@ The report distinguishes **production intensity** from **creative quality**. Exp
 
 Lovett and Staelin (2016) distinguish paid, earned and owned media in an entertainment setting ([Lovett & Staelin, 2016](https://doi.org/10.1287/mksc.2015.0961)). I use those categories for the digital campaign and retain **offline/intermediated promotion** separately because radio, television, DJs/clubs and live activity may be paid, earned or relationship-mediated depending on the activity.
 
-Chronology is used as a control against retrospective over-attribution. The four Portable opening appearances occurred in the earlier manager-led artist phase, before *Let's Fly Away* and before I took broad creative-operations ownership. *Let's Fly Away* marks the transition to broad creative ownership; Bunda represents a later increase in production and promotional resources.
+Chronology is used as a control against retrospective over-attribution. The four Portable opening appearances occurred in the earlier manager-led artist phase, before *Let's Fly Away* and before I took broad creative-operations ownership. *Let's Fly Away* marks the transition to broad creative ownership, Bunda represents a later increase in production and promotional resources, and Pressure followed Bunda. This release sequence is author-reported context: the surviving public Meta export does not identify *Let's Fly Away* or retain row-specific dates sufficient to establish the chronology independently.
 
 ## 4. Historical managerial hypothesis
 

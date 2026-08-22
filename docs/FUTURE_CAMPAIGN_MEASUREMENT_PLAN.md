@@ -13,6 +13,7 @@ measurement system on a small campaign?
 |---|---|---|---|
 | This repository's methodology and exploratory report | Primary case evidence; relevant limitations and future-work sections read in full | The historical export lacks stable ad-level identifiers, creative and delivery metadata, reliable dates, a complete cost ledger and downstream value measures | Build the prospective data structure around these known gaps rather than collecting more platform metrics without context |
 | Meta, Ads Manager campaign structure and Conversions API guidance | Official platform guidance; relevant indexed guidance reviewed, with current pages checked on 22 August 2026 | Objective sits at campaign level; audience, placement, budget and schedule sit at ad-set level; creative sits at ad level. Pixel and Conversions API events can support later-journey measurement, but do not override privacy requirements | Preserve identifiers and settings at all three levels. Use website or CRM events only when proportionate, technically verified and lawfully collected |
+| Meta, Ads Manager activity history | Official platform guidance; relevant page reviewed | Ads Manager records changes to campaign, ad-set and ad settings, including budget, schedule and targeting changes | Use any recoverable activity history to reconstruct what changed between campaign phases rather than treating export row order as chronology |
 | Google Analytics, custom campaign URLs and recommended events | Official product guidance; both pages read in full | Consistent UTM values identify referring campaigns and creative variants; recommended events cover actions such as sign-up, lead generation and purchase; events should be verified after setup | Use a controlled naming and tagging dictionary, select events that match the real campaign journey and test them before launch |
 | Spotify for Artists, audience segments and release engagement | Official platform guidance; both pages read in full | Spotify distinguishes active and programmed listeners and reports the proportion of the pre-release active audience engaging with a release over its first 28 days | Record pre-launch and post-launch Spotify snapshots as contextual evidence of fan development, while avoiding unsupported claims that a Meta click caused a stream |
 | ICO, direct-marketing and electronic-mail guidance | UK regulator; relevant consent, tracking and record-keeping sections read | Tracking pixels and electronic marketing can engage PECR and data-protection duties. Consent must be specific and informed where required, recorded, and easy to withdraw | Treat fan contact collection as an owned relationship with a consent record and withdrawal route, not merely as a campaign result |
@@ -34,6 +35,38 @@ study. Use the minimum viable design below. Treat platform attribution and
 Spotify movement as evidence of observed association. Reserve causal language
 for a properly designed comparison with a credible counterfactual and adequate
 signal.
+
+## Historical learning hypothesis
+
+Author-reported chronology places the principal releases in this order:
+*Let's Fly Away*, Bunda, then Pressure. The two Bunda YouTube traffic rows
+contain the largest recorded link-click volumes, while one later Pressure row
+has the lowest recorded CPC. This pattern is consistent with some executions
+becoming more efficient as practical learning accumulated, but it is not
+evidence of a general time trend. Another Pressure row has a much higher CPC,
+and Bunda performance also varies across rows. The export does not retain
+row-specific dates, delivery settings or enough comparable observations to
+separate learning from changes in creative, objective, audience, placement,
+budget or platform optimisation. *Let's Fly Away* is not identifiable in the
+surviving public Meta export, so its position in the sequence remains
+author-reported context unless another contemporaneous record is recovered.
+
+Before making a trend claim:
+
+1. recover campaign dates, stable identifiers and Ads Manager activity history
+   where they remain available;
+2. map each comparable link campaign to its creative, objective, audience,
+   placement, budget, schedule and optimisation settings;
+3. reconstruct the main campaign phases using contemporaneous assets, invoices,
+   messages, calendars and decision notes, clearly labelling recalled context;
+4. compare like-for-like campaigns within each phase and test whether the
+   apparent improvement remains after the exceptional rows are separated; and
+5. document what operational practice changed, why it changed and whether that
+   explanation is supported by records or relies on retrospective judgement.
+
+If campaign-level chronology cannot be recovered, report accumulated learning
+as a plausible phase-level explanation to investigate prospectively, not as a
+quantified historical trend.
 
 ## Minimum viable design
 
@@ -150,6 +183,7 @@ removing parts of the instrumentation or adding a controlled comparison.
 
 - https://www.facebook.com/business/help/AboutConversionsAPI
 - https://www.facebook.com/help/messenger-app/621956575422138/
+- https://www.facebook.com/help/messenger-app/289211751238030
 - https://support.google.com/analytics/answer/10917952?hl=en-uk
 - https://support.google.com/analytics/answer/9267735?hl=en
 - https://support.spotify.com/na-en/artists/article/audience-segments-on-spotify/
