@@ -101,14 +101,47 @@ def inject_styles() -> None:
             margin-top: 0.28rem;
         }
         .kpi-note { color: #64748B; font-size: 0.76rem; margin-top: 0.2rem; }
-        .decision-strip {
+        .executive-summary {
             margin: 0.95rem 0 0.35rem;
-            padding: 0.9rem 1.05rem;
+            padding: 1rem 1.1rem 1.1rem;
             border-radius: 12px;
-            background: #16324F;
-            color: white;
+            border: 1px solid rgba(22, 50, 79, 0.14);
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 7px 20px rgba(22, 50, 79, 0.05);
         }
-        .decision-strip strong { color: #FFD6C7; }
+        .summary-heading {
+            color: #16324F;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.18rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.75rem 1rem;
+        }
+        .summary-item {
+            padding: 0.72rem 0.82rem;
+            border-radius: 9px;
+            background: #F7F8F8;
+            border-left: 3px solid #287271;
+        }
+        .summary-item.action { border-left-color: #D95D39; }
+        .summary-label {
+            color: #287271;
+            font-size: 0.73rem;
+            font-weight: 800;
+            letter-spacing: 0.055em;
+            text-transform: uppercase;
+        }
+        .summary-item.action .summary-label { color: #B94729; }
+        .summary-item p {
+            color: #40566A;
+            font-size: 0.87rem;
+            line-height: 1.43;
+            margin: 0.24rem 0 0;
+        }
         .action-card {
             min-height: 150px;
             padding: 1rem 1.05rem;
@@ -128,6 +161,7 @@ def inject_styles() -> None:
             [data-testid="stMainBlockContainer"] { padding: 0.8rem 0.8rem 2rem; }
             .hero { padding: 1rem; }
             .kpi-card, .action-card { min-height: auto; }
+            .summary-grid { grid-template-columns: 1fr; }
         }
         </style>
         """,
@@ -256,7 +290,7 @@ st.markdown(
     <section class="hero">
       <div class="eyebrow">Historical Meta Ads decision brief</div>
       <h1>Three rows generated {headline['top_three_click_share_pct']:.1f}% of recorded link clicks.</h1>
-      <p>The pooled result looks unusually efficient, but it is not a safe baseline for a typical campaign. Treat the leading rows as clues, then design the next campaign to preserve the evidence this export is missing.</p>
+      <p>A decision-focused retrospective showing what the surviving export supports, what it cannot answer and what should change in the next live campaign.</p>
     </section>
     """,
     unsafe_allow_html=True,
@@ -279,11 +313,27 @@ with overview_tab:
 
     st.markdown(
         f"""
-        <div class="decision-strip">
-          <strong>Decision:</strong> do not plan from the pooled NGN {headline['weighted_cpc_ngn']:.2f} CPC alone.
-          Removing the three response leaders raises weighted CPC to NGN {model['sensitivity'][-1]['weighted_cpc_ngn']:.2f}
-          and reduces derived CTR to {model['sensitivity'][-1]['derived_ctr_pct']:.2f}%.
-        </div>
+        <section class="executive-summary">
+          <div class="summary-heading">Executive summary</div>
+          <div class="summary-grid">
+            <div class="summary-item">
+              <div class="summary-label">Finding</div>
+              <p>The export records {compact_number(headline['link_clicks'])} link clicks across 106 comparable rows, but three rows account for {headline['top_three_click_share_pct']:.1f}% of them.</p>
+            </div>
+            <div class="summary-item">
+              <div class="summary-label">Business implication</div>
+              <p>The pooled NGN {headline['weighted_cpc_ngn']:.2f} CPC is not a safe planning baseline. Excluding the three leaders raises CPC to NGN {model['sensitivity'][-1]['weighted_cpc_ngn']:.2f} and reduces derived CTR to {model['sensitivity'][-1]['derived_ctr_pct']:.2f}%.</p>
+            </div>
+            <div class="summary-item action">
+              <div class="summary-label">Recommended action</div>
+              <p>Investigate whether accumulated learning contributed to the exceptional Bunda and Pressure rows by reconstructing the sequence from Let's Fly Away through Bunda to Pressure, then carry only supported lessons into the next prospectively measured campaign.</p>
+            </div>
+            <div class="summary-item">
+              <div class="summary-label">Evidence limit</div>
+              <p>The export can describe concentration and sensitivity, but it lacks row-specific dates and delivery settings. It cannot establish a time trend, creative cause, revenue effect or durable fan value.</p>
+            </div>
+          </div>
+        </section>
         """,
         unsafe_allow_html=True,
     )
