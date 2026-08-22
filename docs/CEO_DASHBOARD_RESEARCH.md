@@ -27,11 +27,14 @@ link-campaign impressions. Removing those rows changes weighted CPC from NGN
 **Inference:** the pooled link metrics are dominated by exceptional rows and
 should not be presented as the expected performance of a typical campaign.
 
-**Recommendation:** use the leading rows to define creative hypotheses, recover
-the underlying assets and delivery settings, then run a prospective test tied
-to a commercial outcome. The dashboard therefore leads with concentration,
-sensitivity and the next decision rather than a catalogue of all available
-metrics.
+**Recommendation:** use the retrospective to design a prospective measurement
+system rather than attempting to reconstruct an unsupported creative test.
+The next campaign should define one primary outcome, preserve campaign,
+creative, delivery and cost context, instrument consent-aware downstream
+events, and export data at fixed checkpoints. A controlled comparison should
+be added only when the question, budget and available signal make it credible.
+The dashboard therefore leads with concentration, sensitivity and the next
+measurement decision rather than a catalogue of all available metrics.
 
 The template image search was used only for visual pattern sampling. Several
 commercial examples were dense and gauge-heavy, so official guidance on

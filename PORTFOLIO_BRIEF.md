@@ -1,4 +1,4 @@
-# Portfolio brief: from campaign delivery to evidence-led creative testing
+# Portfolio brief: from campaign delivery to evidence-led measurement
 
 ## Purpose
 
@@ -39,56 +39,44 @@ The strongest recorded traffic response cannot be attributed to a particular hoo
 
 **Implication:** use those rows to generate creative hypotheses, not as proof that one remembered feature caused performance.
 
-**Action:** recover the underlying assets where possible, code their observable features using a predefined taxonomy, and test the most commercially useful hypotheses prospectively.
+**Action:** use the next live campaign to capture the creative, delivery, cost and downstream evidence that was missing here, then decide whether a controlled comparison is justified.
 
 **Risk:** optimising only for inexpensive clicks could improve a platform metric without improving purchases, contribution margin or customer value.
 
-## Proposed next-campaign design
+## Future campaign measurement design
 
-This is a prospective design for a future campaign. It was not applied retrospectively to the historical data.
+This is a prospective design for the next suitable campaign. It is intended to create a trustworthy evidence baseline, not to impose a complex experiment before the business question and available signal are known.
 
-### 1. Define the decision and outcome
+### 1. Plan the evidence before launch
 
-- State the decision the test must inform, such as which opening hook should be developed into the next production batch.
-- Select one primary commercial KPI before launch, such as cost per purchase or contribution margin per impression.
-- Retain diagnostic measures such as thumb-stop/hold measures, click-through rate and landing-page conversion, but do not substitute them for the primary outcome.
+- Define the decision the campaign should inform and select one primary outcome that fits its purpose, such as new active listeners, consented fan sign-ups, qualified enquiries, ticket sales or merchandise sales.
+- Record the budget, dates, reporting currency, time zone, baseline, review windows and conditions for continuing, changing or stopping activity.
+- Assign an owner to each data source and the final campaign decision.
 
-### 2. Create a stable creative taxonomy
+### 2. Capture the missing context
 
-For every asset, preserve:
+- Preserve stable campaign, ad-set, ad and creative IDs.
+- Record objective, optimisation event, audience, placement, geography, budget, schedule and attribution setting.
+- Maintain a creative register covering the asset link, hook, angle, format, duration, creator, call to action and production cost.
+- Use consistent campaign-link tags to distinguish sources and creative versions, and verify useful downstream events before spending.
+- Keep a complete media, production, creator, agency and offline cost ledger.
+- Record consent and provide a withdrawal route when collecting email, WhatsApp or other direct-contact details.
 
-- creative and version ID;
-- hook and opening visual;
-- format and duration;
-- angle or customer problem addressed;
-- creator/talent and delivery style;
-- product, offer, CTA and landing page;
-- production date and cost; and
-- approval status and source file.
+### 3. Preserve the evidence while the campaign runs
 
-For every delivery cell, preserve objective, optimisation event, audience, placement, geography, budget, schedule and attribution setting. Meta describes objective, targeting, budget, duration and creative as connected inputs to ad-auction performance, so these conditions must be retained before creative differences can be interpreted responsibly.
+- Test tagged destinations and conversion events before launch.
+- Save raw exports and platform snapshots at fixed checkpoints.
+- Log material creative, budget, targeting, schedule and optimisation changes when they occur.
+- Keep platform delivery, website or smart-link behaviour, owned-audience actions, streaming movement and commercial outcomes as separate evidence layers.
+- Label conclusions as descriptive, platform-attributed or causal, and document missing data before interpreting results.
 
-### 3. Use a controlled comparison where attribution matters
+### 4. Add a controlled comparison only when useful
 
-- Form one testable hypothesis and nominate the focal creative factor.
-- Keep the remaining test conditions as comparable as the platform and business context allow.
-- Randomly allocate exposure through an appropriate platform experiment rather than comparing unrelated historical rows.
-- Pre-specify the analysis window, exclusions, decision rule and minimum effect worth detecting.
-- Estimate sample requirements from baseline conversion, the minimum detectable effect and chosen error/power thresholds; report uncertainty as well as the point estimate.
-- Avoid repeatedly stopping and restarting based only on an early favourable result.
-
-Meta recommends A/B testing for learning about Reels creative and placements. Statistical design still depends on the outcome and experiment type; work on Facebook lift studies likewise shows that significance, power and required sample size need explicit treatment rather than a generic traffic threshold.
-
-### 4. Connect platform response to business value
-
-- Validate campaign and conversion tracking before launch.
-- Carry stable IDs into analytics, order and customer records where lawful and technically feasible.
-- Reconcile spend, platform conversions and downstream outcomes.
-- Segment results only where the design and sample support it; label exploratory subgroup findings as hypotheses.
+The first priority is complete, decision-relevant measurement. A controlled comparison can be added when there is a specific factor worth isolating, a credible comparison group, sufficient budget and expected event volume, and a pre-set analysis window and decision rule. If those conditions are absent, the campaign should remain a descriptive learning cycle rather than being presented as causal evidence.
 
 ### 5. Turn the result into the next brief
 
-The reporting output should contain the decision, hypothesis, test conditions, data-quality checks, result with uncertainty, commercial interpretation, limitations and the next creative action. A creator brief should translate the finding into observable changes while preserving what still needs to be tested.
+The reporting output should contain the decision, campaign conditions, data-quality checks, results, commercial interpretation, limitations and the next action. The detailed fields, checkpoints and privacy controls are set out in the **[future campaign measurement plan](docs/FUTURE_CAMPAIGN_MEASUREMENT_PLAN.md)**.
 
 ## Evidence boundary
 
@@ -96,8 +84,10 @@ The historical analysis can establish recorded spend, delivery, platform results
 
 That boundary is part of the project: reliable analysis requires saying when the available evidence is not capable of answering the business question.
 
-## Sources informing the proposed design
+## Sources informing the design
 
-- Meta for Business, *The ad auction explained*: https://www.facebook.com/business/ads/ad-auction
-- Meta for Business, *Facebook and Instagram Reels ads*: https://www.facebook.com/business/ads/facebook-instagram-reels-ads
-- Liu, C.H.B., Bettaney, E.M. and Chamberlain, B.P. (2018), *Designing Experiments to Measure Incrementality on Facebook*: https://arxiv.org/abs/1806.02588
+- Meta, *About Conversions API*: https://www.facebook.com/business/help/AboutConversionsAPI
+- Google Analytics, *URL builders: Collect campaign data with custom URLs*: https://support.google.com/analytics/answer/10917952?hl=en-uk
+- Spotify for Artists, *Audience segments*: https://support.spotify.com/na-en/artists/article/audience-segments-on-spotify/
+- ICO, *Plan direct marketing*: https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/direct-marketing-guidance/plan-direct-marketing/
+- IAB and IAB Europe, *Guidelines for Incremental Measurement in Commerce Media*: https://www.iab.com/wp-content/uploads/2025/11/IAB_and_IAB_Europe_Guidelines_Incremental_Measurement_Commerce_Media_November_2025.pdf
